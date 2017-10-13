@@ -1,0 +1,40 @@
+<p>
+  <h1>Add a new transaction</h1>
+
+  <div id="new-transaction">
+    <form action="/transactions/created" method="POST">
+
+      <!-- <label for="shopName">Shop name:</label> -->
+      <!-- <input type="text" name="shop_name" id="shopName" placeholder="Name of merchant"/ > -->
+
+      <label for="shop_name"></label>
+      <select name="shop_name" id="shop">
+        <option disabled selected value> -- select shop -- </option>
+        <% for shop in @vendors %>
+        <option value="<%= shop.id %>">
+          <%= shop.shop_name %>
+        </option>
+        <% end %>
+      </select>
+
+      <!-- <label for="type">Type:</label> -->
+      <input type="text" name="type" id="type" placeholder="Type of transaction eg 'Groceries'"/ >
+
+      <!-- <label for="amount">Amount:</label> -->
+      <input type="number" min=0 max=100000 name="amount" id="amount"/ placeholder="Transaction amount eg 5.25" >
+
+      <label for="transaction_date">Date of transaction:</label>
+      <input type="date" name="transaction_date">
+
+      <label class="switch" for="amount">Recurring payment?</label>
+
+        <div class="checkboxTwo">
+        <input type ="checkbox" id="checkboxTwoInput" name="recurring"/>
+        <label for="checkboxTwoInput"></label>
+      </div>
+
+      <input type="submit" value="Add new transaction" id="btn-new-student">
+
+    </form>
+  </div>
+</p>

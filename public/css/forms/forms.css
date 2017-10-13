@@ -1,0 +1,72 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  height: 50px;
+  font-size: 24px;
+}
+
+option {
+  font-size: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 50px 0px 50px;
+}
+
+input {
+  height: 50px;
+  font-size: 24px;
+}
+
+label {
+  margin-top: 18px;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+.checkboxTwo {
+  width: 120px;
+  height: 40px;
+  background: #333;
+  margin: 20px 60px;
+  border-radius: 50px;
+  position: relative;
+}
+
+.checkboxTwo:before {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 14px;
+  height: 2px;
+  width: 90px;
+  background: #111;
+}
+
+.checkboxTwo label {
+  margin-top: 0;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+  left: 12px;
+  background: #ddd;
+}
+
+.checkboxTwo input[type=checkbox]:checked + label {
+  left: 84px;
+  background: #26ca28;
+}

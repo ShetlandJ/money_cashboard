@@ -1,0 +1,38 @@
+nav {
+  background-color: #000000;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  font-family: ralewaysemibold, Helvetica, Arial, sans-serif;
+}
+
+.nav-items {
+  border: 3px solid white;
+  border-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 18px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  font-size: 18px;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: white;
+  color: black;
+}
