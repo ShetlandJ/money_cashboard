@@ -2,72 +2,70 @@ require_relative('../db/sql_runner')
 
 class Vendor
 
-  attr_accessor :shop_name
+  attr_accessor :name
   attr_reader :id
 
   def initialize( options )
     @id = options['id'].to_i
-    @shop_name = options['shop_name']
+    @name = options['name']
   end
 
   def save()
-    sql = "INSERT INTO merchants
+    sql = "INSERT INTO vendors
     (
-      shop_name,
-      type
-        )
+      name
+            )
     VALUES
     (
-      $1, $2
+      $1
     )
     RETURNING *"
-    values = [@shop_name, @type]
-    merchant_data = SqlRunner.run(sql, values)
-    @id = merchant_data.first()['id'].to_i
+    values = [@name]
+    vendor_data = SqlRunner.run(sql, values)
+    @id = vendor_data.first()['id'].to_i
   end
 
   def update()
-    sql = "UPDATE merchants
+    sql = "UPDATE vendors
     SET
     (
-      shop_name,
-      type
+      name
       ) =
       (
-        $1, $2
+        $1
       )
-      WHERE id = $3"
-      values = [@shop_name, @type, @id]
+      WHERE id = $2"
+      values = [@name, @id]
       SqlRunner.run( sql, values )
     end
 
     def delete()
-      sql = "DELETE FROM merchants
+      sql = "DELETE FROM vendors
       WHERE id = $1"
       values = [@id]
       SqlRunner.run( sql, values )
     end
 
     def self.delete_all()
-      sql = "DELETE FROM merchants"
+      sql = "DELETE FROM vendors"
       values = []
       SqlRunner.run( sql, values )
 
     end
 
     def self.all()
-      sql = "SELECT * FROM merchants"
+      sql = "SELECT * FROM vendors"
       values = []
-      merchants = SqlRunner.run( sql, values )
-      result = merchants.map { |shop| Merchant.new( shop ) }
+      vendors = SqlRunner.run( sql, values )
+      result = vendors.map { |vendor| Vendor.new( vendor ) }
       return result
     end
 
     def self.find( id )
-      sql = "SELECT * FROM merchants WHERE id = $1"
+      sql = "SELECT * FROM vendors WHERE id = $1"
       values = [id]
-      shop = SqlRunner.run( sql, values )
-      result = Merchant.new( shop.first )
+      vendor = SqlRunner.run( sql, values )
+      result = Vendor.new( vendor.first )
       return result
     end
 

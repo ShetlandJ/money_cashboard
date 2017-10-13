@@ -1,0 +1,12 @@
+<article>
+
+<% @transactions.each do |transaction| %>
+<p> Transaction tag: <%= transaction.tag_id %></p>
+<p> Transaction vendor: <%= transaction.vendor_id %></p>
+<p> Transaction amount: <%= transaction.amount %></p>
+<p> Transaction date: <%= transaction.date %></p>
+
+<%= print transaction %>
+<% end %>
+
+</article>

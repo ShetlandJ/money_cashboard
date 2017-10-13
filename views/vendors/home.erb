@@ -1,2 +1,9 @@
+<article>
+  <h1>Number of vendors: <%= @vendors.count() %></h1>
+
 <% @vendors.each do |vendor| %>
 <p> Vendor name: <%= vendor.name %></p>
+<%= print vendor %>
+<% end %>
+
+</article>

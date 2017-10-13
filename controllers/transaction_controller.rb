@@ -1,10 +1,15 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require('pry-byebug')
 
 require_relative('../models/tag')
 require_relative('../models/vendor')
 require_relative('../models/transaction')
+
+get '/transactions' do
+  @transaction = Transaction.all()
+  # @vendors = Vendor.all()
+  erb (:"transaction/home")
+end
 
 get '/transactions/new' do
   @transaction = Transaction.all()

@@ -1,11 +1,21 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require('pry-byebug')
 
-require_relative('vendor_controller')
-require_relative('transaction_controller')
+require_relative('../models/tag')
+require_relative('../models/vendor')
+require_relative('../models/transaction')
 
-get '/tag' do
+get '/tags' do
     @tags = Tag.all()
-    erb ( :home )
+    erb (:"tag/home")
+end
+
+get '/tags/new' do
+  erb (:"tag/new")
+end
+
+post '/tags' do
+  @tag = Tag.new(params)
+  vendor.save()
+  redirect to('/tags')
 end

@@ -15,7 +15,7 @@ CREATE TABLE vendors (
 CREATE TABLE transactions (
   id SERIAL4 PRIMARY KEY,
   tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
-  vendor_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
+  vendor_id INT4 REFERENCES vendors(id) ON DELETE CASCADE,
   amount INT4,
   transaction_date DATE
 );

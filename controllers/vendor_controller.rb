@@ -1,10 +1,9 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require('pry-byebug')
 
-require_relative('./models/user')
-require_relative('./models/vendor')
-require_relative('./models/transaction')
+require_relative('../models/tag')
+require_relative('../models/vendor')
+require_relative('../models/transaction')
 
 get '/vendors' do
     @vendors = Vendor.all()
