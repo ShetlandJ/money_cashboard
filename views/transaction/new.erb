@@ -14,7 +14,15 @@
         <% end %>
       </select>
 
-
+      <label for="t_name"></label>
+      <select name="t_name" id="tag-dropdown">
+        <option disabled selected value> -- select tag -- </option>
+        <% for tag in @tags %>
+        <option value="<%= tag.id %>">
+          <%= tag.t_name() %>
+        </option>
+        <% end %>
+      </select>
 
       <!-- <label for="amount">Amount:</label> -->
       <input type="number" min=0 max=100000 name="amount" id="amount"/ placeholder="Transaction amount eg 5.25" >

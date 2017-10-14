@@ -12,7 +12,7 @@ get '/transactions' do
 end
 
 get '/transactions/new' do
-  # @transaction = Transaction.new()
+  @transaction = Transaction.all()
   @vendors = Vendor.all()
   @tags = Tag.all()
   erb (:"transaction/new")
