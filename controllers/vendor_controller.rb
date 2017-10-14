@@ -1,9 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 
-require_relative('../models/tag')
 require_relative('../models/vendor')
-require_relative('../models/transaction')
 
 get '/vendors' do
   @vendors = Vendor.all()
@@ -14,13 +12,30 @@ get '/vendors/new' do
   erb (:"vendors/new")
 end
 
-post '/vendors/create' do
-  existing = Vendor.all()
+get '/vendors/:id' do
+  @vendor = Vendor.find(params['id'])
+  erb ( :"vendors/show" )
+end
+
+get '/vendors/:id/edit' do
+  @vendor = Vendor.find(params['id'])
+  erb ( :"vendors/edit" )
+end
+
+post '/vendors/:id' do
   @vendor = Vendor.new(params)
-  if existing.include? @vendor.name
-    redirect to('/')
-  else
-    @vendor.save()
-  end
+  @vendor.update()
+  redirect to('/vendors')
+end
+
+post '/vendors/:id/delete' do
+  @vendor = Vendor.find(params['id'])
+  @vendor.delete()
+  erb ( :"/vendors/delete" )
+end
+
+post '/vendors/create' do
+  @vendor = Vendor.new(params)
+  @vendor.save()
   redirect to('/vendors')
 end

@@ -1,3 +1,6 @@
+<h1>Number of transactions: <%= @transactions.count() %></h1>
+
+<a href="/transactions/new" class="menu-item">Add new</a>
 
 <article>
 
@@ -8,6 +11,9 @@
 <p> Date: <%= transaction.transaction_date %></p>
 
 <%= print transaction %>
+<a href="/transactions/<%= transaction.id %>/edit" class="menu-item">Edit</a>
+<a href="/transactions/<%= transaction.id %>/delete" class="menu-item">Delete</a>
+
 <hr />
 <% end %>
 

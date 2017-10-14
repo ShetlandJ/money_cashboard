@@ -12,44 +12,37 @@ get '/transactions' do
 end
 
 get '/transactions/new' do
-  # @transaction = Transaction.new(params)
   @vendors = Vendor.all()
   @tags = Tag.all()
   erb (:"transaction/new")
 end
 
-# get '/user/:id' do
-#   @student = Student.find(params['id'])
-#   erb ( :show )
-# end
+get '/transactions/:id' do
+  @transactions = Transaction.find(params['id'])
+  erb ( :"transaction/show" )
+end
 
-# get '/user/:id/edit' do
-#   @student = Student.find(params['id'])
-#   @transaction = Transaction.all()
-#   erb ( :edit )
-# end
+get '/transactions/:id/edit' do
+  @transactions = Transaction.find(params['id'])
+  @vendors = Vendor.all()
+  @tags = Tag.all()
+  erb ( :"transaction/edit" )
+end
 
-# post '/user/:id' do
-#   @student = Student.new(params)
-#   @student.update()
-#   erb ( :update )
-# end
+post '/transactions/:id' do
+  @transaction = Transaction.new(params)
+  @transaction.update()
+  redirect to('/transactions')
+end
 
-# post '/user/:id/delete' do
-#   @student = Student.find(params['id'])
-#   @student.delete()
-#   erb ( :delete )
-# end
-
-# post '/user' do
-#   @transaction = Transaction.new(params)
-#   @transaction.save()
-#   erb( :update )
-# end
-
+post '/transactions/:id/delete' do
+  @transaction = Transaction.find(params['id'])
+  @transaction.delete()
+  redirect to('/transactions')
+end
 
 post '/transactions/create' do
   @transaction = Transaction.new(params)
   @transaction.save()
-  redirect to("/transactions" )
+  redirect to("/transactions")
 end

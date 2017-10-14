@@ -1,9 +1,12 @@
 <article>
   <h1>Number of vendors: <%= @vendors.count() %></h1>
+  <a href="/vendors/new" class="menu-item">Add new</a>
 
 <% @vendors.each do |vendor| %>
 <p> Vendor name: <%= vendor.name %></p>
 <%= print vendor %>
+<a href="/vendors/<%= vendor.id %>/edit" class="menu-item">Edit</a>
+
 <% end %>
 
 </article>

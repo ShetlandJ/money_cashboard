@@ -1,9 +1,12 @@
 <article>
   <h1>Number of tags: <%= @tags.count() %></h1>
+  <a href="/vendors/new" class="menu-item">Add new?</a>
 
 <% @tags.each do |tag| %>
 <p> Tag name: <%= tag.t_name %></p>
 <%= print tag %>
+<a href="/tags/<%= tag.id %>/edit" class="menu-item">Edit</a>
+
 <% end %>
 
 </article>

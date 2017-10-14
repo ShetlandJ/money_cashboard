@@ -1,0 +1,53 @@
+<h1>Alter Transaction details</h1>
+
+<div>
+  <form action="/transactions/<%= @transactions.id %>" method="POST">
+
+    <label for="vendor_id"></label>
+    <select name="vendor_id" id="vendor">
+      <% for vendor in @vendors %>
+      <% if vendor.name == @transactions.vendor.name %>
+      <option selected="selected" value="<%= vendor.id %>">
+        <%= vendor.name %> (current vendor)
+        <% else %>
+        <option value="<%= vendor.id %>">
+          <%= vendor.name %>
+          <% end %>
+        </option>
+        <% end %>
+      </select>
+
+      <label for="tag_id"></label>
+      <select name="tag_id" id="vendor">
+        <% for tag in @tags %>
+        <% if tag.t_name == @transactions.tag.t_name %>
+        <option selected="selected" value="<%= tag.id %>">
+          <%= tag.t_name %> (current tag)
+          <% else %>
+          <option value="<%= tag.id %>">
+            <%= tag.t_name %>
+            <% end %>
+          </option>
+          <% end %>
+        </select>
+
+        <input type="number" min=0 max=100000 name="amount" id="amount" value="<%= @transactions.amount %>" />
+
+        <label for="transaction_date">Date of transaction:</label>
+        <input type="date" name="transaction_date" value="<%= @transactions.transaction_date %>">
+
+
+      <input type="submit" value="Edit Student Details" id="btn-new-student">
+
+    </form>
+  </div>
+
+
+
+  CREATE TABLE transactions (
+    id SERIAL4 PRIMARY KEY,
+    tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
+    vendor_id INT4 REFERENCES vendors(id) ON DELETE CASCADE,
+    amount INT4,
+    transaction_date DATE
+  );
