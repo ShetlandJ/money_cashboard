@@ -114,23 +114,35 @@ class Transaction
       return transactions[0]
     end
 
-    def self.totals1()
+    # def self.totals1()
+    #   sql = "SELECT SUM(transactions.amount)
+    #   FROM transactions
+    #   GROUP BY transactions.amount ORDER BY transactions.amount DESC LIMIT 3"
+    #   values = []
+    #   transactions = SqlRunner.run( sql, values )
+    #   result = transactions.map { |transaction| Transaction.new( transaction ) }
+    #   return transactions.first
+    # end
+
+    def self.grouped_cost()
       sql = "SELECT SUM(transactions.amount)
       FROM transactions
-      GROUP BY transactions.amount ORDER BY transactions.amount DESC LIMIT 3"
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      GROUP BY tags.t_name ORDER BY tags.t_name LIMIT 1;"
       values = []
       transactions = SqlRunner.run( sql, values )
       result = transactions.map { |transaction| Transaction.new( transaction ) }
       return transactions.first
     end
 
-    SELECT tags.t_name, SUM(transactions.amount)
-    FROM transactions
-    GROUP BY tags.t_name
-
-    SELECT transactions.amount SUM()
-    FROM transactions
-    GROUP BY transactions.amount;
+    # SELECT tags.t_name, COUNT(transactions.amount)
+    # FROM tags, transactions
+    # GROUP BY tags.t_name
+    #
+    # SELECT transactions.amount SUM()
+    # FROM transactions
+    # GROUP BY transactions.amount;
 
     def self.most_common_tag()
       sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
