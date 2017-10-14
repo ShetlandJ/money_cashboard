@@ -14,8 +14,13 @@ get '/vendors/new' do
   erb (:"vendors/new")
 end
 
-post '/vendors' do
+post '/vendors/create' do
+  @existing = Vendor.all()
   @vendor = Vendor.new(params)
-  vendor.save()
+  if @existing.include? @vendor
+    redirect to('/vendors')
+  else
+  @vendor.save()
   redirect to('/vendors')
+end
 end
