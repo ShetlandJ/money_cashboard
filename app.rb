@@ -11,5 +11,6 @@ get '/' do
   @accounts = Account.all()
   @transactions_total = Transaction.total()
   @most_common_item = Transaction.most_common_tag()
+  @most_spent_on = Transaction.most_spent_on()
   erb ( :home )
 end

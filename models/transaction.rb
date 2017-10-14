@@ -116,4 +116,17 @@ class Transaction
       return transactions[0].values.first
     end
 
+    def self.most_spent_on()
+      sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
+      FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      GROUP BY tags.t_name
+      ORDER BY SUM(transactions.amount) DESC LIMIT 1"
+      values = []
+      transactions = SqlRunner.run(sql, values)
+      # return transactions.map {|transaction| Transaction.new(transaction)}
+      return transactions[0].values.first
+    end
+
   end
