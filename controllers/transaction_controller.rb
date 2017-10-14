@@ -12,9 +12,9 @@ get '/transactions' do
 end
 
 get '/transactions/new' do
-  @transaction = Transaction.all()
-  # @vendors = Vendor.all()
-  # @tags = Tag.all()
+  # @transaction = Transaction.new(params)
+  @vendors = Vendor.all()
+  @tags = Tag.all()
   erb (:"transaction/new")
 end
 
@@ -51,5 +51,5 @@ end
 post '/transactions/create' do
   @transaction = Transaction.new(params)
   @transaction.save()
-  redirect to("/transaction" )
+  redirect to("/transactions" )
 end

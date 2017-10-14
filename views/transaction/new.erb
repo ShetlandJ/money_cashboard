@@ -4,8 +4,8 @@
     <form action="/transactions/create" method="POST">
 
 
-      <label for="name"></label>
-      <select name="name" id="vendor-dropdown">
+      <label for="vendor_id"></label>
+      <select name="vendor_id" id="vendor-dropdown">
         <option disabled selected value> -- select shop -- </option>
         <% for vendor in @vendors %>
         <option value="<%= vendor.id %>">
@@ -14,8 +14,8 @@
         <% end %>
       </select>
 
-      <label for="t_name"></label>
-      <select name="t_name" id="tag-dropdown">
+      <label for="tag_id"></label>
+      <select name="tag_id" id="tag-dropdown">
         <option disabled selected value> -- select tag -- </option>
         <% for tag in @tags %>
         <option value="<%= tag.id %>">

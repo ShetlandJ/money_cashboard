@@ -2,7 +2,7 @@
 <article>
 
 <% @transactions.each do |transaction| %>
-<p> Transaction type: <%= transaction.tag.name %></p>
+<p> Transaction type: <%= transaction.tag.t_name %></p>
 <p> Vendor: <%= transaction.vendor.name %></p>
 <p> Transaction amount: £<%= transaction.amount %></p>
 <p> Date: <%= transaction.transaction_date %></p>
