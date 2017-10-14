@@ -39,5 +39,5 @@ end
 post '/tags/:id/delete' do
   @tag = Tag.find(params['id'])
   @tag.delete()
-  erb ( :"/tag/delete" )
+  redirect to('/tags')
 end

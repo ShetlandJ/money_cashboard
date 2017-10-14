@@ -12,7 +12,9 @@
 
 <%= print transaction %>
 <a href="/transactions/<%= transaction.id %>/edit" class="menu-item">Edit</a>
-<a href="/transactions/<%= transaction.id %>/delete" class="menu-item">Delete</a>
+<form action="/transactions/<%= transaction.id %>/delete" method="POST">
+  <input type="submit" value="✖ Delete" id="btn-delete">
+</form>
 
 <hr />
 <% end %>

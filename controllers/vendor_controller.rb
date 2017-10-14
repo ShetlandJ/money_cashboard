@@ -12,7 +12,6 @@ get '/vendors/new' do
   erb (:"vendors/new")
 end
 
-
 get '/vendors/:id' do
   @vendor = Vendor.find(params['id'])
   erb ( :"vendors/show" )
@@ -38,5 +37,6 @@ end
 post '/vendors/:id/delete' do
   @vendor = Vendor.find(params['id'])
   @vendor.delete()
-  erb ( :"/vendors/delete" )
+  redirect to('/vendors')
+  # erb ( :"/vendors/delete" )
 end

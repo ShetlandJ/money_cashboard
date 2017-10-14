@@ -6,6 +6,9 @@
 <p> Tag name: <%= tag.t_name %></p>
 <%= print tag %>
 <a href="/tags/<%= tag.id %>/edit" class="menu-item">Edit</a>
+<form action="/tags/<%= tag.id %>/delete" method="POST">
+  <input type="submit" value="✖ Delete" id="btn-delete">
+</form>
 
 <% end %>
 
