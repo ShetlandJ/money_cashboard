@@ -12,5 +12,6 @@ get '/' do
   @transactions_total = Transaction.total()
   @most_common_item = Transaction.most_common_tag()
   @most_spent_on = Transaction.most_spent_on()
+  @grouped_cost = Transaction.grouped_cost()
   erb ( :home )
 end

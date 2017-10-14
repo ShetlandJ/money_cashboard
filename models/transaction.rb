@@ -133,16 +133,8 @@ class Transaction
       values = []
       transactions = SqlRunner.run( sql, values )
       result = transactions.map { |transaction| Transaction.new( transaction ) }
-      return transactions.first
+      return transactions[0].values.first
     end
-
-    # SELECT tags.t_name, COUNT(transactions.amount)
-    # FROM tags, transactions
-    # GROUP BY tags.t_name
-    #
-    # SELECT transactions.amount SUM()
-    # FROM transactions
-    # GROUP BY transactions.amount;
 
     def self.most_common_tag()
       sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
