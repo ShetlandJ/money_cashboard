@@ -24,6 +24,12 @@ get '/tags/:id/edit' do
   erb ( :"tag/edit" )
 end
 
+post '/tags/create' do
+  @tag = Tag.new(params)
+  @tag.save()
+  redirect to('/tags')
+end
+
 post '/tags/:id' do
   @tag = Tag.new(params)
   @tag.update()
@@ -34,10 +40,4 @@ post '/tags/:id/delete' do
   @tag = Tag.find(params['id'])
   @tag.delete()
   erb ( :"/tag/delete" )
-end
-
-post '/tags/create' do
-  @tag = Tag.new(params)
-  @tag.save()
-  redirect to('/tags')
 end

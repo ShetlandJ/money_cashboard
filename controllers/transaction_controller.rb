@@ -28,6 +28,11 @@ get '/transactions/:id/edit' do
   @tags = Tag.all()
   erb ( :"transaction/edit" )
 end
+post '/transactions/create' do
+  @transaction = Transaction.new(params)
+  @transaction.save()
+  redirect to("/transactions")
+end
 
 post '/transactions/:id' do
   @transaction = Transaction.new(params)
@@ -39,10 +44,4 @@ post '/transactions/:id/delete' do
   @transaction = Transaction.find(params['id'])
   @transaction.delete()
   redirect to('/transactions')
-end
-
-post '/transactions/create' do
-  @transaction = Transaction.new(params)
-  @transaction.save()
-  redirect to("/transactions")
 end
