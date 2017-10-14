@@ -104,23 +104,32 @@ class Transaction
 
     end
 
-    def self.most_common_item()
-      sql= "SELECT tag_id FROM transactions GROUP BY tag_id ORDER BY COUNT(*) DESC LIMIT 1"
+    # def self.most_common_tag()
+    #   sql = "SELECT tag_id, COUNT(tag_id)
+    #   FROM transactions
+    #   GROUP BY tag_id LIMIT 1"
+    #   values = []
+    #   vendors = SqlRunner.run(sql, values)
+    #   return vendors.map {|vendor| Vendor.new(vendor)}
+    # end
+
+
+    def self.most_common_tag()
+      sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
+      FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      GROUP BY tags.t_name
+      ORDER BY COUNT(transactions.tag_id) DESC LIMIT 1"
       values = []
-      most_common_item = SqlRunner.run( sql, values )
-      result = most_common_item.map { |tag| Tag.new( tag ) }
-      return result
+      transactions = SqlRunner.run(sql, values)
+      return transactions.map {|transaction| Transaction.new(transaction)}
     end
-
-    def self.most_common_item()
-      sql= "SELECT tags.t_name FROM tags WHERE tags.id = $1"
-      values = [@tag_id]
-      most_common_item = SqlRunner.run( sql, values )
-      result = most_common_item.map { |tag| Tag.new( tag ) }
-      return result
-    end
-
-
-
+    # SELECT ta.tag_name, COUNT(tr.tag_id)
+    # FROM transactions tr
+    # JOIN tags ta
+    # ON ta.id = tr.tag_id
+    # GROUP BY tr.tag_id
+    # ORDER BY COUNT(tr.tag_id)
 
   end
