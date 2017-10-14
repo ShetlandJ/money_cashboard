@@ -101,18 +101,7 @@ class Transaction
       transactions = SqlRunner.run( sql, values )
       result = transactions.map { |transaction| Transaction.new( transaction ) }
       return transactions[0].values.first.to_i
-
     end
-
-    # def self.most_common_tag()
-    #   sql = "SELECT tag_id, COUNT(tag_id)
-    #   FROM transactions
-    #   GROUP BY tag_id LIMIT 1"
-    #   values = []
-    #   vendors = SqlRunner.run(sql, values)
-    #   return vendors.map {|vendor| Vendor.new(vendor)}
-    # end
-
 
     def self.most_common_tag()
       sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
@@ -123,13 +112,8 @@ class Transaction
       ORDER BY COUNT(transactions.tag_id) DESC LIMIT 1"
       values = []
       transactions = SqlRunner.run(sql, values)
-      return transactions.map {|transaction| Transaction.new(transaction)}
+      # return transactions.map {|transaction| Transaction.new(transaction)}
+      return transactions[0].values.first
     end
-    # SELECT ta.tag_name, COUNT(tr.tag_id)
-    # FROM transactions tr
-    # JOIN tags ta
-    # ON ta.id = tr.tag_id
-    # GROUP BY tr.tag_id
-    # ORDER BY COUNT(tr.tag_id)
 
   end
