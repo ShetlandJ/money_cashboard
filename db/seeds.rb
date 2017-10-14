@@ -83,7 +83,15 @@ transaction3 = Transaction.new({
 }
 )
 
-transaction3.save()
+transaction4 = Transaction.new({
+  'vendor_id' => vendor2.id,
+  'tag_id' => tag2.id,
+  'amount' => 40,
+  'transaction_date' => '23-12-2017'
+}
+)
+
+transaction4.save()
 
 
 pry.binding

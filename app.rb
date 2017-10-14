@@ -10,5 +10,6 @@ require_relative('./controllers/account_controller')
 get '/' do
   @accounts = Account.all()
   @transactions_total = Transaction.total()
+  @most_common_item = Transaction.most_common_item()
   erb ( :home )
 end

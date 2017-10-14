@@ -104,6 +104,23 @@ class Transaction
 
     end
 
+    def self.most_common_item()
+      sql= "SELECT tag_id FROM transactions GROUP BY tag_id ORDER BY COUNT(*) DESC LIMIT 1"
+      values = []
+      most_common_item = SqlRunner.run( sql, values )
+      result = most_common_item.map { |tag| Tag.new( tag ) }
+      return result
+    end
+
+    def self.most_common_item()
+      sql= "SELECT tags.t_name FROM tags WHERE tags.id = $1"
+      values = [@tag_id]
+      most_common_item = SqlRunner.run( sql, values )
+      result = most_common_item.map { |tag| Tag.new( tag ) }
+      return result
+    end
+
+
 
 
   end
