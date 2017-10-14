@@ -14,8 +14,8 @@ get '/tags/new' do
   erb (:"tag/new")
 end
 
-post '/tags' do
+post '/tags/create' do
   @tag = Tag.new(params)
-  vendor.save()
+  @tag.save()
   redirect to('/tags')
 end
