@@ -12,6 +12,12 @@ get '/vendors/new' do
   erb (:"vendors/new")
 end
 
+post '/vendors/create' do
+  @vendor = Vendor.new(params)
+  @vendor.save()
+  erb (:"/vendors/create")
+end
+
 get '/vendors/:id' do
   @vendor = Vendor.find(params['id'])
   erb ( :"vendors/show" )
@@ -32,10 +38,4 @@ post '/vendors/:id/delete' do
   @vendor = Vendor.find(params['id'])
   @vendor.delete()
   erb ( :"/vendors/delete" )
-end
-
-post '/vendors/create' do
-  @vendor = Vendor.new(params)
-  @vendor.save()
-  redirect to('/vendors')
 end

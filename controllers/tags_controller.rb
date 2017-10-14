@@ -27,7 +27,7 @@ end
 post '/tags/:id' do
   @tag = Tag.new(params)
   @tag.update()
-  erb( :"tag/create" )
+  erb( :"tag/update" )
 end
 
 post '/tags/:id/delete' do
