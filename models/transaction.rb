@@ -103,6 +103,35 @@ class Transaction
       return transactions[0].values.first.to_i
     end
 
+    def self.totals()
+      sql = "SELECT SUM(transactions.amount) FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      WHERE tags.id = $1;"
+      values = [@id]
+      transactions = SqlRunner.run( sql, values )
+      result = transactions.map { |transaction| Transaction.new( transaction ) }
+      return transactions[0]
+    end
+
+    def self.totals1()
+      sql = "SELECT SUM(transactions.amount)
+      FROM transactions
+      GROUP BY transactions.amount ORDER BY transactions.amount DESC LIMIT 3"
+      values = []
+      transactions = SqlRunner.run( sql, values )
+      result = transactions.map { |transaction| Transaction.new( transaction ) }
+      return transactions.first
+    end
+
+    SELECT tags.t_name, SUM(transactions.amount)
+    FROM transactions
+    GROUP BY tags.t_name
+
+    SELECT transactions.amount SUM()
+    FROM transactions
+    GROUP BY transactions.amount;
+
     def self.most_common_tag()
       sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
       FROM transactions
@@ -128,5 +157,26 @@ class Transaction
       # return transactions.map {|transaction| Transaction.new(transaction)}
       return transactions[0].values.first
     end
+
+    # def cash_per_item()
+    #   sql = "SELECT tags.id COUNT(transactions.amount)
+    #   FROM transactions
+    #   JOIN tags
+    #   ON "
+    #
+    # end
+
+    # def self.most_spent_on_cash_count()
+    #   sql = "SELECT tags.t_name, transactions.amount
+    #   FROM transactions
+    #   JOIN tags
+    #   ON tags.id = transactions.tag_id
+    #   GROUP BY tags.t_name
+    #   ORDER BY SUM(transactions.amount) DESC LIMIT 1"
+    #   values = []
+    #   transactions = SqlRunner.run(sql, values)
+    #   # return transactions.map {|transaction| Transaction.new(transaction)}
+    #   return transactions[0]
+    # end
 
   end
