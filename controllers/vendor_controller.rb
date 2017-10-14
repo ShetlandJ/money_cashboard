@@ -6,8 +6,8 @@ require_relative('../models/vendor')
 require_relative('../models/transaction')
 
 get '/vendors' do
-    @vendors = Vendor.all()
-    erb (:"vendors/home")
+  @vendors = Vendor.all()
+  erb (:"vendors/home")
 end
 
 get '/vendors/new' do
@@ -15,12 +15,12 @@ get '/vendors/new' do
 end
 
 post '/vendors/create' do
-  @existing = Vendor.all()
+  existing = Vendor.all()
   @vendor = Vendor.new(params)
-  if @existing.include? @vendor
-    redirect to('/vendors')
+  if existing.include? @vendor.name
+    redirect to('/')
   else
-  @vendor.save()
+    @vendor.save()
+  end
   redirect to('/vendors')
-end
 end
