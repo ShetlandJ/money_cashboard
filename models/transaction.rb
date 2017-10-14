@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require_relative('tag')
+require_relative('vendor')
 
 class Transaction
 
@@ -7,9 +9,9 @@ class Transaction
 
   def initialize( options )
     @id = options['id'].to_i
-    @tag_id = options['tag_id']
-    @vendor_id = options['vendor_id']
-    @amount = options['amount']
+    @tag_id = options['tag_id'].to_i
+    @vendor_id = options['vendor_id'].to_i
+    @amount = options['amount'].to_i
     @transaction_date = options['transaction_date']
   end
 
@@ -65,8 +67,7 @@ class Transaction
       sql = "SELECT * FROM transactions"
       values = []
       transactions = SqlRunner.run( sql, values )
-      result = transactions.map { |transaction| Transaction.new( transaction ) }
-      return result
+      return transactions.map { |transaction| Transaction.new( transaction ) }
     end
 
     def self.find( id )
@@ -75,6 +76,32 @@ class Transaction
       transactions = SqlRunner.run( sql, values )
       result = Transaction.new( transactions.first )
       return result
+    end
+
+
+    def vendor()
+      sql = "SELECT * FROM vendors
+      WHERE id = $1"
+      values = [@vendor_id]
+      results = SqlRunner.run( sql, values )
+      return Vendor.new( results.first )
+    end
+
+    def tag()
+      sql = "SELECT * FROM tags
+      WHERE id = $1"
+      values = [@tag_id]
+      results = SqlRunner.run( sql, values )
+      return Tag.new( results.first )
+    end
+
+    def self.total()
+      sql = "SELECT SUM(amount) FROM transactions"
+      values = []
+      transactions = SqlRunner.run( sql, values )
+      result = transactions.map { |transaction| Transaction.new( transaction ) }
+      return transactions[0].values.first.to_i
+
     end
 
 

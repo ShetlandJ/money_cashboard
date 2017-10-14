@@ -1,10 +1,16 @@
 DROP TABLE IF EXISTS transactions;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS vendors;
+DROP TABLE IF EXISTS tags;
+
+CREATE TABLE accounts (
+  id SERIAL4 PRIMARY KEY,
+  income INT4
+);
 
 CREATE TABLE tags (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255)
+  t_name VARCHAR(255)
 );
 
 CREATE TABLE vendors (

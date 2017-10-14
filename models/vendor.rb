@@ -14,7 +14,7 @@ class Vendor
     sql = "INSERT INTO vendors
     (
       name
-            )
+    )
     VALUES
     (
       $1

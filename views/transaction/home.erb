@@ -1,12 +1,14 @@
+
 <article>
 
 <% @transactions.each do |transaction| %>
-<p> Transaction tag: <%= transaction.tag_id %></p>
-<p> Transaction vendor: <%= transaction.vendor_id %></p>
-<p> Transaction amount: <%= transaction.amount %></p>
-<p> Transaction date: <%= transaction.date %></p>
+<p> Transaction type: <%= transaction.tag.name %></p>
+<p> Vendor: <%= transaction.vendor.name %></p>
+<p> Transaction amount: £<%= transaction.amount %></p>
+<p> Date: <%= transaction.transaction_date %></p>
 
 <%= print transaction %>
+<hr />
 <% end %>
 
 </article>

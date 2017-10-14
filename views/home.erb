@@ -1,14 +1,33 @@
 <div id="main-container">
 
   <div id="summary">
-    This month you have spent: £1000
+    <% @accounts.each do |account| %>
+    <div id="monthly-income">
+
+      <p>
+        Your monthly income is <%= account.monthly_income %>
+      </p>
+    </div>
+    <div id="monthly-spend">
+      <p>
+        Your total spend this month is <%= @transactions_total %>
+      </p>
+    </div>
+
+    <div id="monthly-left">
+      <p>
+        Your total monthly leftover is <%= account.monthly_income - @transactions_total %>
+      </p>
+    </div>
+
   </div>
+  <% end %>
 
   <div id="menu-options">
 
-      <a href="/transactions/new" class="menu-item">+ Add a spend</a>
-      <a href="#" class="menu-item">+ Add a new merchant</a>
-      <a href="#" class="menu-item">Transaction History</a>
+    <a href="/transactions/new" class="menu-item">+ Add a spend</a>
+    <a href="#" class="menu-item">+ Add a new vendor</a>
+    <a href="#" class="menu-item">Transaction history</a>
 
   </div>
 

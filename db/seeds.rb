@@ -1,3 +1,4 @@
+require_relative('../models/account')
 require_relative('../models/tag')
 require_relative('../models/vendor')
 require_relative('../models/transaction')
@@ -6,16 +7,23 @@ require('pry-byebug')
 Transaction.delete_all()
 Vendor.delete_all()
 Tag.delete_all()
+Account.delete_all()
+
+account1 = Account.new({
+  'income' => 28000
+  })
+
+  account1.save()
 
 tag1 = Tag.new({
-  'name' => 'Council Tax',
+  't_name' => 'Council Tax',
 }
 )
 
 tag1.save()
 
 tag2 = Tag.new({
-  'name' => 'Eating Out',
+  't_name' => 'Eating Out',
 }
 )
 
@@ -23,7 +31,7 @@ tag2.save()
 
 
 tag3 = Tag.new({
-  'name' => 'Groceries',
+  't_name' => 'Groceries',
 }
 )
 
