@@ -9,51 +9,71 @@ Vendor.delete_all()
 Tag.delete_all()
 Account.delete_all()
 
-account1 = Account.new({
-  'income' => 28000
-  })
+account1 = Account.new({'income' => 28000})
 
   account1.save()
 
-tag1 = Tag.new({
-  't_name' => 'Council Tax',
-}
-)
+tag1 = Tag.new({'t_name' => 'Council Tax'})
+tag2 = Tag.new({'t_name' => 'Electricity Bill'})
+tag3 = Tag.new({'t_name' => 'Gas Bill'})
+tag4 = Tag.new({'t_name' => 'Mobile Phone'})
+tag5 = Tag.new({'t_name' => 'Gym'})
+tag6 = Tag.new({'t_name' => 'Mortgage'})
+tag7 = Tag.new({'t_name' => 'Internet'})
+tag8 = Tag.new({'t_name' => 'Subscription Services'})
+tag9 = Tag.new({'t_name' => 'Dinner Out'})
+tag10 = Tag.new({'t_name' => 'Groceries'})
+tag11 = Tag.new({'t_name' => 'Drinks'})
+tag12 = Tag.new({'t_name' => 'Video Games'})
+tag13 = Tag.new({'t_name' => 'Days out'})
 
 tag1.save()
-
-tag2 = Tag.new({
-  't_name' => 'Eating Out',
-}
-)
-
 tag2.save()
-
-
-tag3 = Tag.new({
-  't_name' => 'Groceries',
-}
-)
-
 tag3.save()
+tag4.save()
+tag5.save()
+tag6.save()
+tag7.save()
+tag8.save()
+tag9.save()
+tag10.save()
+tag11.save()
+tag12.save()
+tag13.save()
 
-vendor1 = Vendor.new({
-  'name' => 'Glasgow City Council',
-}
-)
+
+
+vendor1 = Vendor.new({'name' => 'Glasgow City Council'})
+vendor2 = Vendor.new({'name' => 'Solarplicity'})
+vendor3 = Vendor.new({'name' => 'Scottish Gas'})
+vendor4 = Vendor.new({'name' => 'Vodafone'})
+vendor5 = Vendor.new({'name' => 'The Gym - Bothwell Street'})
+vendor6 = Vendor.new({'name' => 'Bank of Scotland'})
+vendor7 = Vendor.new({'name' => 'BT Internet'})
+vendor8 = Vendor.new({'name' => 'Netflix'})
+vendor9 = Vendor.new({'name' => 'Spotify'})
+vendor10 = Vendor.new({'name' => 'Paesano'})
+vendor11 = Vendor.new({'name' => 'Marks & Spencers'})
+vendor12 = Vendor.new({'name' => 'Tesco'})
+vendor13 = Vendor.new({'name' => 'Super Bario'})
+vendor14 = Vendor.new({'name' => 'Fault & Blame'})
+vendor15 = Vendor.new({'name' => 'Steam (Valve)'})
+
 vendor1.save()
-
-vendor2 = Vendor.new({
-  'name' => 'Paesano',
-}
-)
 vendor2.save()
-
-vendor3 = Vendor.new({
-  'name' => 'Tesco',
-}
-)
 vendor3.save()
+vendor4.save()
+vendor5.save()
+vendor6.save()
+vendor7.save()
+vendor8.save()
+vendor9.save()
+vendor10.save()
+vendor11.save()
+vendor12.save()
+vendor13.save()
+vendor14.save()
+vendor15.save()
 
 transaction1 = Transaction.new({
   'vendor_id' => vendor1.id,
@@ -82,6 +102,8 @@ transaction3 = Transaction.new({
   'transaction_date' => '15-12-2017'
 }
 )
+transaction3.save()
+
 
 transaction4 = Transaction.new({
   'vendor_id' => vendor2.id,
@@ -90,8 +112,18 @@ transaction4 = Transaction.new({
   'transaction_date' => '23-12-2017'
 }
 )
-
 transaction4.save()
+
+
+transaction5 = Transaction.new({
+  'vendor_id' => vendor3.id,
+  'tag_id' => tag3.id,
+  'amount' => 400,
+  'transaction_date' => '20-12-2017'
+}
+)
+
+transaction5.save()
 
 
 pry.binding

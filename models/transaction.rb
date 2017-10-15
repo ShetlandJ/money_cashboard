@@ -125,15 +125,28 @@ class Transaction
     # end
 
     def self.grouped_cost()
-      sql = "SELECT SUM(transactions.amount)
+      sql = "SELECT tags.t_name, SUM(transactions.amount)
       FROM transactions
       JOIN tags
       ON tags.id = transactions.tag_id
-      GROUP BY tags.t_name ORDER BY tags.t_name LIMIT 1;"
+      GROUP BY tags.t_name ORDER BY SUM(transactions.amount) DESC LIMIT 1;"
       values = []
       transactions = SqlRunner.run( sql, values )
       result = transactions.map { |transaction| Transaction.new( transaction ) }
-      return transactions[0].values.first
+      return transactions[0].values.last.to_i
+    end
+
+    def self.most_common_tag_by_number()
+      sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
+      FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      GROUP BY tags.t_name
+      ORDER BY COUNT(transactions.tag_id) DESC LIMIT 1"
+      values = []
+      transactions = SqlRunner.run(sql, values)
+      # return transactions.map {|transaction| Transaction.new(transaction)}
+      return transactions[0].values.last
     end
 
     def self.most_common_tag()

@@ -13,7 +13,8 @@ class Account
   end
 
   def monthly_income()
-    @income / 12
+    monthly_amount = @income / 12
+    return monthly_amount.to_i
   end
 
   def weekly_income()

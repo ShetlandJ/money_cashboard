@@ -5,30 +5,30 @@
     <div id="monthly-income">
 
       <p>
-        Your monthly income is <%= account.monthly_income %>
+        Your monthly income is £<%= account.monthly_income %>
       </p>
     </div>
     <div id="monthly-spend">
       <p>
-        Your total spend this month is <%= @transactions_total %>
+        Your total spend this month is £<%= @transactions_total %>
       </p>
     </div>
 
     <div id="monthly-left">
       <p>
-        Your total monthly leftover is <%= account.monthly_income - @transactions_total %>
-      </p>
-    </div>
-
-    <div id="most_common_tag">
-      <p>
-        Your most common transaction was: <%= @most_common_item %>
+        Your total monthly leftover is £<%= account.monthly_income - @transactions_total %>
       </p>
     </div>
 
     <div id="most_spent_on">
       <p>
-        You spent the most on <%= @most_spent_on %> (£<%= @grouped_cost %>)
+        You spent the most on <%= @most_spent_on %> (£<%= @grouped_cost %>, <%= ((@grouped_cost.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
+      </p>
+    </div>
+
+    <div id="most_common_tag">
+      <p>
+        Your most common transaction was: <%= @most_common_item %> (<%= @most_common_tag_by_number %> times)
       </p>
     </div>
 
