@@ -11,7 +11,7 @@ Account.delete_all()
 
 account1 = Account.new({'income' => 28000})
 
-  account1.save()
+account1.save()
 
 tag1 = Tag.new({'t_name' => 'Council Tax'})
 tag2 = Tag.new({'t_name' => 'Electricity Bill'})

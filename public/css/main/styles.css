@@ -55,7 +55,6 @@ a.menu-item {
   background-color: #F17845;
   color: white;
   display: inline-block;
-  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -88,6 +87,14 @@ article {
   background-color: #ECF3EC;
 }
 
+article:hover {
+  background-color: #FFFFFF;
+  border: solid 4px #7B8E8D;
+  margin: 7px;
+  padding: 15px;
+
+}
+
 #edit-delete {
   display: flex;
   justify-content: center;
@@ -98,4 +105,26 @@ button#btn-delete {
   border: 0;
   height: 40%;
   width: 40%;
+}
+
+#transactions-top {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+}
+
+#btn-add-new {
+  background-color: #AFE3C0;
+  color: #688B58;
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: 3px solid white;
+  border-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 18px;
+  font-family: ralewaysemibold, Helvetica, Arial, sans-serif;
+  font-size: 30px;
 }
