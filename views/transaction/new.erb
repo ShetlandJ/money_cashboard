@@ -1,12 +1,12 @@
   <h1>Add a new transaction</h1>
 
   <div id="new-transaction">
-    <form action="/transactions/create" method="POST">
+    <form action="/transactions/create" method="POST" id="new-edit-form">
 
 
       <label for="vendor_id"></label>
       <select name="vendor_id" id="vendor-dropdown">
-        <option disabled selected value> -- select shop -- </option>
+        <option disabled selected value> -- select vendor -- </option>
         <% for vendor in @vendors %>
         <option value="<%= vendor.id %>">
           <%= vendor.name %>
@@ -24,13 +24,12 @@
         <% end %>
       </select>
 
-      <!-- <label for="amount">Amount:</label> -->
       <input type="number" min=0 max=100000 name="amount" id="amount"/ placeholder="Transaction amount eg 5.25" >
 
       <label for="transaction_date">Date of transaction:</label>
       <input type="date" name="transaction_date">
 
-      <input type="submit" value="Add new transaction" id="btn-new-student">
+      <input type="submit" value="Add new transaction" id="btn-new-transaction">
 
     </form>
   </div>

@@ -1,7 +1,7 @@
 <h1>Alter Tag name</h1>
 
 <div>
-  <form action="/tags/<%= @tags.id %>" method="POST">
+  <form action="/tags/<%= @tags.id %>" method="POST" id="new-edit-form">
 
     <label for="t_name">Tag name:</label>
     <input type="text" name="t_name" id="tName" value="<%= @tags.t_name %>"/ >

@@ -1,7 +1,7 @@
 <h1>Alter Vendor name</h1>
 
 <div>
-  <form action="/vendors/<%= @vendor.id %>" method="POST">
+  <form action="/vendors/<%= @vendor.id %>" method="POST" id="new-edit-form">
 
     <label for="name">Tag name:</label>
     <input type="text" name="name" id="name" value="<%= @vendor.name %>"/ >
