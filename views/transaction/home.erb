@@ -7,16 +7,21 @@
 
 <% @transactions.each do |transaction| %>
 <article>
-<p> Transaction type: <%= transaction.tag.t_name %></p>
-<p> Vendor: <%= transaction.vendor.name %></p>
-<p> Transaction amount: £<%= transaction.amount %></p>
-<p> Date: <%= transaction.transaction_date %></p>
+  <p> Transaction type: <%= transaction.tag.t_name %></p>
+  <p> Vendor: <%= transaction.vendor.name %></p>
+  <p> Transaction amount: £<%= transaction.amount %></p>
+  <p> Date: <%= transaction.transaction_date %></p>
 
-<%= print transaction %>
-<a href="/transactions/<%= transaction.id %>/edit" class="menu-item">Edit</a>
-<form action="/transactions/<%= transaction.id %>/delete" method="POST">
-  <input type="submit" value="✖ Delete" id="btn-delete">
-</form>
+  <%= print transaction %>
+  <div id="edit-delete">
+    <a href="/transactions/<%= transaction.id %>/edit"><img src="edit.png" alt=""></a>
+    <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+      <button type="submit" id="btn-delete">
+        <img src="trash.png" alt="" id="delete-btn">
+      </button>
+  </form>
+    </div>
+  </form>
 </article>
 <% end %>
 

@@ -79,9 +79,23 @@ a.menu-item:hover {
 }
 
 article {
-  border: solid 1px grey;
-  border-radius: 29px;
+  border: solid 1px #7B8E8D;
+  border-radius: 30px;
   margin: 10px;
-  padding: 10px;
-  font-family: ralewaysemibold;
+  padding: 15px;
+  font-family: raleway;
+  font-size: 18px;
+  background-color: #ECF3EC;
+}
+
+#edit-delete {
+  display: flex;
+  justify-content: center;
+}
+
+button#btn-delete {
+  background: none;
+  border: 0;
+  height: 40%;
+  width: 40%;
 }
