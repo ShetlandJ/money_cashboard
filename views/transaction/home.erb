@@ -2,9 +2,11 @@
 
 <a href="/transactions/new" class="menu-item">Add new</a>
 
-<article>
+
+<div id="transaction-page">
 
 <% @transactions.each do |transaction| %>
+<article>
 <p> Transaction type: <%= transaction.tag.t_name %></p>
 <p> Vendor: <%= transaction.vendor.name %></p>
 <p> Transaction amount: £<%= transaction.amount %></p>
@@ -15,8 +17,7 @@
 <form action="/transactions/<%= transaction.id %>/delete" method="POST">
   <input type="submit" value="✖ Delete" id="btn-delete">
 </form>
-
-<hr />
+</article>
 <% end %>
 
-</article>
+</div>

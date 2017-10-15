@@ -72,3 +72,16 @@ a.menu-item:hover {
   background-color: white;
   color: black;
 }
+
+#transaction-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article {
+  border: solid 1px grey;
+  border-radius: 29px;
+  margin: 10px;
+  padding: 10px;
+  font-family: ralewaysemibold;
+}
