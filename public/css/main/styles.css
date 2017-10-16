@@ -85,6 +85,7 @@ article {
   font-family: raleway;
   font-size: 18px;
   background-color: #ECF3EC;
+  width: 15%;
 }
 
 article:hover {
@@ -142,6 +143,7 @@ p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [clas
   border: solid 1px;
   border-radius: 5px;
   text-align: center;
+  padding: 4px 0px 4px 0px;
 }
 
 p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
@@ -168,6 +170,7 @@ background-color: #66cc91;
 border: solid 1px;
 border-radius: 5px;
 text-align: center;
+padding: 4px 0px 4px 0px;
 }
 
 p[class='Mobile\ Phone']:hover, [class='Groceries']:hover{
@@ -194,6 +197,7 @@ p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class=
   border: solid 1px;
   border-radius: 5px;
   text-align: center;
+  padding: 4px 0px 4px 0px;
 }
 
 p[class='Subscription\ Services']:hover, [class='Gym']:hover, [class='Dinner\ Out']:hover, [class='Drinks']:hover, [class='Video\ Games']:hover, [class='Days\ out']:hover {
@@ -216,4 +220,13 @@ article[id='Subscription\ Services']:hover, [id='Gym']:hover, [id='Dinner\ Out']
 .btn-tag {
   text-decoration: none;
   color: inherit;
+}
+
+#monthy {
+  color: grey;
+  text-decoration: none;
+}
+
+p#vendor-name {
+  font-size: 18px;
 }

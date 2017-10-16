@@ -12,7 +12,7 @@ class Transaction
     @tag_id = options['tag_id'].to_i
     @vendor_id = options['vendor_id'].to_i
     @amount = options['amount'].to_i
-    @transaction_date = options['transaction_date']
+    @transaction_date = Date.parse(options['transaction_date']) if options['transaction_date'] != nil
   end
 
   def save()

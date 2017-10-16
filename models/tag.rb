@@ -69,15 +69,6 @@ class Tag
       return result
     end
 
-    # def self.most_common_tag()
-    #   sql = "SELECT tag_id, COUNT(tag_id)
-    #   FROM transactions
-    #   GROUP BY tag_id LIMIT 1"
-    #   values = []
-    #   vendors = SqlRunner.run(sql, values)
-    #   return vendors.map {|vendor| Vendor.new(vendor)}
-    # end
-
     def vendors()
       sql = "SELECT vendors.* FROM vendors WHERE id = $1;"
       values = [@id]
@@ -88,6 +79,13 @@ class Tag
     def transactions()
       sql = "SELECT transactions.* FROM transactions WHERE tag_id = $1;"
       values = [@id]
+      transactions = SqlRunner.run(sql, values)
+      return transactions.map {|transaction| Transaction.new(transaction)}
+    end
+
+    def self.all_transactions( id )
+      sql = "SELECT transactions.* FROM transactions WHERE tag_id = $1;"
+      values = [id]
       transactions = SqlRunner.run(sql, values)
       return transactions.map {|transaction| Transaction.new(transaction)}
     end

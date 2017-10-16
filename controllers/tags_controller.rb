@@ -19,6 +19,11 @@ get '/tags/:id' do
   erb ( :"tag/show" )
 end
 
+get '/tags/:id/all' do
+  @tags = Tag.all_transactions(params['id'])
+  erb ( :"tag/all" )
+end
+
 get '/tags/:id/edit' do
   @tags = Tag.find(params['id'])
   erb ( :"tag/edit" )
