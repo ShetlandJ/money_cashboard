@@ -10,17 +10,17 @@
 
 <% @transactions.each do |transaction| %>
 <article>
-  <p> Transaction type: <%= transaction.tag.t_name %></p>
   <p> Vendor: <%= transaction.vendor.name %></p>
   <p> Transaction amount: £<%= transaction.amount %></p>
   <p> Date: <%= transaction.transaction_date %></p>
-
+  <p> Transaction type:<br />
+  <p class="<%= transaction.tag.t_name %>"><%= transaction.tag.t_name %></p>
   <%= print transaction %>
   <div id="edit-delete">
-    <a href="/transactions/<%= transaction.id %>/edit"><img src="edit.png" alt=""></a>
+    <a href="/transactions/<%= transaction.id %>/edit"><img src="edit.png" alt="edit"></a>
     <form action="/transactions/<%= transaction.id %>/delete" method="POST">
       <button type="submit" id="btn-delete">
-        <img src="trash.png" alt="" id="delete-btn">
+        <img src="trash.png" alt="delete" id="delete-btn">
       </button>
   </form>
     </div>

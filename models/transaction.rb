@@ -99,7 +99,6 @@ class Transaction
       sql = "SELECT SUM(amount) FROM transactions"
       values = []
       transactions = SqlRunner.run( sql, values )
-      result = transactions.map { |transaction| Transaction.new( transaction ) }
       return transactions[0].values.first.to_i
     end
 

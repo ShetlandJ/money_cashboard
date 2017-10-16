@@ -24,7 +24,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #87C3E7;
+  background-color: #AFE3C0;
   flex-grow: 0;
   flex-basis: 55%;
 }
@@ -127,4 +127,33 @@ button#btn-delete {
   padding-top: 18px;
   font-family: ralewaysemibold, Helvetica, Arial, sans-serif;
   font-size: 30px;
+}
+
+#most-spent-on {
+  text-align:center;
+}
+
+
+/*utilities tag CSS*/
+p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
+  color: black;
+  background-color: #C0C0C0;
+  border: solid 1px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/*essentials*/
+p[class='Mobile\ Phone'], [class='Groceries']{
+  color: green;
+}
+
+
+/*bonus*/
+p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class='Drinks'], [class='Video\ Games'], [class='Days\ out']{
+  color: black;
+  background-color: #FA8072;
+  border: solid 1px;
+  border-radius: 5px;
+  text-align: center;
 }

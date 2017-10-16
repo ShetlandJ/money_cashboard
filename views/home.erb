@@ -2,34 +2,29 @@
 
   <div id="summary">
     <% @accounts.each do |account| %>
-    <div id="monthly-income">
 
-      <p>
-        Your monthly income is £<%= account.monthly_income %>
-      </p>
-    </div>
     <div id="monthly-spend">
-      <p>
+      <h1>
         Your total spend this month is £<%= @transactions_total %>
-      </p>
+      </h1>
     </div>
 
     <div id="monthly-left">
-      <p>
+      <h2>
         Your total monthly leftover is £<%= account.monthly_income - @transactions_total %>
-      </p>
+      </h2>
     </div>
 
     <div id="most_spent_on">
-      <p>
-        You spent the most on <%= @most_spent_on %> (£<%= @grouped_cost %>, <%= ((@grouped_cost.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
-      </p>
+      <h2>
+        You spent the most on <%= @most_spent_on %><br />(£<%= @grouped_cost %>, <%= ((@grouped_cost.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
+      </h2>
     </div>
 
     <div id="most_common_tag">
-      <p>
+      <h2>
         Your most common transaction was: <%= @most_common_item %> (<%= @most_common_tag_by_number %> times)
-      </p>
+      </h2>
     </div>
 
   </div>
