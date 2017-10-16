@@ -55,7 +55,7 @@ class Tag
     end
 
     def self.all()
-      sql = "SELECT * FROM tags"
+      sql = "SELECT * FROM tags ORDER BY t_name"
       values = []
       tags = SqlRunner.run( sql, values )
       return tags.map { |t_name| Tag.new( t_name ) }

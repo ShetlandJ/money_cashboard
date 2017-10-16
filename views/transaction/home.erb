@@ -1,6 +1,6 @@
 <div id="transactions-top">
 
-  <h1>Number of transactions: <%= @transactions.count() %></h1>
+  <h1 id="headline">Number of transactions: <%= @transactions.count() %></h1>
 
   <a href="/transactions/new" id="btn-add-new">&nbsp;+&nbsp;</a>
 </div>
@@ -10,7 +10,7 @@
 
 <% @transactions.each do |transaction| %>
 <article>
-  <p> Vendor: <%= transaction.vendor.name %></p>
+  <p> Vendor: <strong><%= transaction.vendor.name %></strong></p>
   <p> Transaction amount: £<%= transaction.amount %></p>
   <p> Date: <%= transaction.transaction_date %></p>
   <p> Transaction type:<br /></p>

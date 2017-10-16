@@ -1,15 +1,23 @@
-<article>
+<div id="transactions-top">
+
   <h1>Number of vendors: <%= @vendors.count() %></h1>
-  <a href="/vendors/new" class="menu-item">Add new</a>
+  <a href="/vendors/new" id="btn-add-new">&nbsp;+&nbsp;</a>
+
+</div>
+  <div id="transaction-page">
 
 <% @vendors.each do |vendor| %>
-<p> Vendor name: <%= vendor.name %></p>
+<article>
+<p><%= vendor.name %></p>
 <%= print vendor %>
-<a href="/vendors/<%= vendor.id %>/edit" class="menu-item">Edit</a>
-<!-- <a href="/vendors/<%= vendor.id %>/delete" class="menu-item">Delete</a> -->
-<form action="/vendors/<%= vendor.id %>/delete" method="POST">
-  <input type="submit" value="✖ Delete" id="btn-delete">
-</form>
-<% end %>
-
+<div id="edit-delete">
+  <a href="/vendors/<%= vendor.id %>/edit"><img src="edit.png" alt="edit"></a>
+  <form action="/vendors/<%= vendor.id %>/delete" method="POST">
+    <button type="submit" id="btn-delete">
+      <img src="trash.png" alt="delete" id="delete-btn">
+    </button>
+  </form>
+</div>
 </article>
+<% end %>
+</div>
