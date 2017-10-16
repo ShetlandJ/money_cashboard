@@ -14,7 +14,7 @@
   <p> Transaction amount: £<%= transaction.amount %></p>
   <p> Date: <%= transaction.transaction_date.strftime("%d ") %><a href="/december/<%= transaction.transaction_date.strftime('%Y') %>" id="monthy"><%= transaction.transaction_date.strftime("%B") %></a><%= transaction.transaction_date.strftime(" %Y") %></p>
   <p> Transaction type:<br /></p>
-    <a href="/tags/<%= transaction.tag.id %>" class="btn-tag">
+    <a href="/tags/<%= transaction.tag.id %>/all" class="btn-tag">
       <p class="<%= transaction.tag.t_name %>"><span id="hover-transition"><%= transaction.tag.t_name %></span>
       </p>
     </a>
