@@ -1,14 +1,15 @@
 <div id="transaction-page">
 
+
 <% @tags.each do |tag| %>
+</p>
 <article id="<%= tag.tag.t_name %>">
   <p id="vendor-name"><strong><%= tag.vendor.name %></strong></p>
   <p> Transaction amount: £<%= tag.amount %></p>
   <p> Date: <%= tag.transaction_date.strftime("%d ") %><a href="/december/<%= tag.transaction_date.strftime('%Y') %>" id="monthy"><%= tag.transaction_date.strftime("%B") %></a><%= tag.transaction_date.strftime(" %Y") %></p>
   <p> Transaction type:<br /></p>
 
-      <p class="<%= tag.tag.t_name %>"><%= tag.tag.t_name %>
-      </p>
+      <p class="<%= tag.tag.t_name %>"><%= tag.tag.t_name %></p>
 
     <%= print tag %>
     <div id="edit-delete">
