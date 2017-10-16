@@ -1,26 +1,24 @@
 <div id="transactions-top">
-<% @tags.each do |tag| %>
-
-  <h1>Number of <%= tag.tag.t_name %>: <%= @tags.count %></h1>
-<% end %>
+  <h1>Number of <%= @transactions[0].tag.t_name %> spend events: <%= @transactions.count %></h1>
 </div>
+
 <div id="transaction-page">
 
 
-<% @tags.each do |tag| %>
+<% @transactions.each do |transaction| %>
 </p>
-<article id="<%= tag.tag.t_name %>">
-  <p id="vendor-name"><strong><%= tag.vendor.name %></strong></p>
-  <p> Transaction amount: £<%= tag.amount %></p>
-  <p> Date: <%= tag.transaction_date.strftime("%d ") %><a href="/december/<%= tag.transaction_date.strftime('%Y') %>" id="monthy"><%= tag.transaction_date.strftime("%B") %></a><%= tag.transaction_date.strftime(" %Y") %></p>
+<article id="<%= transaction.tag.t_name %>">
+  <p id="vendor-name"><strong><%= transaction.vendor.name %></strong></p>
+  <p> Transaction amount: £<%= transaction.amount %></p>
+  <p> Date: <%= transaction.transaction_date.strftime("%d ") %><a href="/december/<%= transaction.transaction_date.strftime('%Y') %>" id="monthy"><%= transaction.transaction_date.strftime("%B") %></a><%= transaction.transaction_date.strftime(" %Y") %></p>
   <p> Transaction type:<br /></p>
 
-      <p class="<%= tag.tag.t_name %>"><%= tag.tag.t_name %></p>
+      <p class="<%= transaction.tag.t_name %>"><%= transaction.tag.t_name %></p>
 
-    <%= print tag %>
+    <%= print transaction %>
     <div id="edit-delete">
-      <a href="/transactions/<%= tag.id %>/edit"><img src="edit.png" alt="edit"></a>
-      <form action="/transactions/<%= tag.id %>/delete" method="POST">
+      <a href="/transactions/<%= transaction.id %>/edit"><img src="edit.png" alt="edit"></a>
+      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
         <button type="submit" id="btn-delete">
           <img src="trash.png" alt="delete" id="delete-btn">
         </button>
@@ -31,3 +29,45 @@
 <% end %>
 
 </div>
+
+<style>
+
+p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
+right: ;
+transition: 0;
+padding-right: 0;
+}
+
+p[class="Electricity\ Bill"]:hover:after, [class="Council\ Tax"]:hover:after, [class="Gas\ Bill"]:hover:after, [class="Mortgage"]:hover:after, [class="Internet"]:hover:after {
+content: '';
+opacity: 1;
+transition: 0;
+}
+
+article[id="Electricity\ Bill"]:hover, [id="Council\ Tax"]:hover, [id="Gas\ Bill"]:hover, [id="Mortgage"]:hover, [id="Internet"]:hover {
+  border: solid 4px #C0C0C0;
+  background-color: #f2f2f2;
+}
+
+p[class='Mobile\ Phone']:hover, [class='Groceries']:hover{
+  right: 0;
+  transition: 0;
+  padding-right: 0;
+}
+
+p[class='Mobile\ Phone']:hover:after, [class='Groceries']:hover:after{
+  content: '';
+}
+
+p[class='Subscription\ Services']:hover, [class='Gym']:hover, [class='Dinner\ Out']:hover, [class='Drinks']:hover, [class='Video\ Games']:hover, [class='Days\ out']:hover {
+    right: 0;
+    transition: 0;
+    padding-right: 0px;
+}
+
+p[class='Subscription\ Services']:hover:after, [class='Gym']:hover:after, [class='Dinner\ Out']:hover:after, [class='Drinks']:hover:after, [class='Video\ Games']:hover:after, [class='Days\ out']:hover:after{
+  content: '';
+}
+
+
+</style>

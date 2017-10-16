@@ -20,7 +20,8 @@ get '/tags/:id' do
 end
 
 get '/tags/:id/all' do
-  @tags = Tag.all_transactions(params['id'])
+  @transactions = Tag.all_transactions(params['id'])
+  @tag_name = Tag.all()
   erb ( :"tag/all" )
 end
 
