@@ -133,7 +133,6 @@ button#btn-delete {
   text-align:center;
 }
 
-
 /*utilities tag CSS*/
 p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
   color: black;
@@ -143,11 +142,38 @@ p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [clas
   text-align: center;
 }
 
-/*essentials*/
-p[class='Mobile\ Phone'], [class='Groceries']{
-  color: green;
+p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
+right: -15px;
+transition: 0.5s;
+padding-right: 20px;
 }
 
+p[class="Electricity\ Bill"]:hover:after, [class="Council\ Tax"]:hover:after, [class="Gas\ Bill"]:hover:after, [class="Mortgage"]:hover:after, [class="Internet"]:hover:after {
+content: '\00bb';
+opacity: 1;
+transition: 0.5s;
+}
+
+/*essentials*/
+p[class='Mobile\ Phone'], [class='Groceries']{
+color: black;
+background-color: #66cc91;
+border: solid 1px;
+border-radius: 5px;
+text-align: center;
+}
+
+p[class='Mobile\ Phone']:hover, [class='Groceries']:hover{
+  right: -15px;
+  transition: 0.5s;
+  padding-right: 20px;
+}
+
+p[class='Mobile\ Phone']:hover:after, [class='Groceries']:hover:after{
+  content: '\00bb';
+  opacity: 1;
+  transition: 0.5s;
+}
 
 /*bonus*/
 p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class='Drinks'], [class='Video\ Games'], [class='Days\ out']{
@@ -156,4 +182,21 @@ p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class=
   border: solid 1px;
   border-radius: 5px;
   text-align: center;
+}
+
+p[class='Subscription\ Services']:hover, [class='Gym']:hover, [class='Dinner\ Out']:hover, [class='Drinks']:hover, [class='Video\ Games']:hover, [class='Days\ out']:hover{
+  right: -15px;
+  transition: 0.5s;
+  padding-right: 20px;
+}
+
+p[class='Subscription\ Services']:hover:after, [class='Gym']:hover:after, [class='Dinner\ Out']:hover:after, [class='Drinks']:hover:after, [class='Video\ Games']:hover:after, [class='Days\ out']:hover:after{
+  content: '\00bb';
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.btn-tag {
+  text-decoration: none;
+  color: inherit;
 }
