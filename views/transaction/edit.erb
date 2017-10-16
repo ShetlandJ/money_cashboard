@@ -1,6 +1,6 @@
 <h1>Alter Transaction details</h1>
 
-<div>
+<div id="new-transaction">
   <form action="/transactions/<%= @transactions.id %>" method="POST" id="new-edit-form">
 
     <label for="vendor_id"></label>
@@ -31,23 +31,15 @@
           <% end %>
         </select>
 
+        <div id="pound-sign">
+          <span>£</span>
         <input type="number" min=0 max=100000 name="amount" id="amount" value="<%= @transactions.amount %>" />
-
+</div>
         <label for="transaction_date">Date of transaction:</label>
         <input type="date" name="transaction_date" value="<%= @transactions.transaction_date %>">
 
 
-      <input type="submit" value="Edit Student Details" id="btn-new-student">
+      <input type="submit" value="Edit transaction" id="btn-new-transaction">
 
     </form>
   </div>
-
-
-
-  CREATE TABLE transactions (
-    id SERIAL4 PRIMARY KEY,
-    tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
-    vendor_id INT4 REFERENCES vendors(id) ON DELETE CASCADE,
-    amount INT4,
-    transaction_date DATE
-  );

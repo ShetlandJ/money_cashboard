@@ -154,7 +154,7 @@ padding-right: 20px;
 
 p[class="Electricity\ Bill"]:hover:after, [class="Council\ Tax"]:hover:after, [class="Gas\ Bill"]:hover:after, [class="Mortgage"]:hover:after, [class="Internet"]:hover:after {
 content: '\00bb';
-opacity: 1;
+opacity: 0;
 transition: 0.5s;
 }
 

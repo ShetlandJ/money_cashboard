@@ -17,10 +17,10 @@
 
     <%= print transaction %>
     <div id="edit-delete">
-      <a href="/transactions/<%= transaction.id %>/edit"><img src="edit.png" alt="edit"></a>
+      <a href="/transactions/<%= transaction.id %>/edit"><img src="/edit.png" alt="edit"></a>
       <form action="/transactions/<%= transaction.id %>/delete" method="POST">
         <button type="submit" id="btn-delete">
-          <img src="trash.png" alt="delete" id="delete-btn">
+          <img src="/trash.png" alt="delete" id="delete-btn">
         </button>
       </form>
     </div>
@@ -42,11 +42,6 @@ p[class="Electricity\ Bill"]:hover:after, [class="Council\ Tax"]:hover:after, [c
 content: '';
 opacity: 1;
 transition: 0;
-}
-
-article[id="Electricity\ Bill"]:hover, [id="Council\ Tax"]:hover, [id="Gas\ Bill"]:hover, [id="Mortgage"]:hover, [id="Internet"]:hover {
-  border: solid 4px #C0C0C0;
-  background-color: #f2f2f2;
 }
 
 p[class='Mobile\ Phone']:hover, [class='Groceries']:hover{
