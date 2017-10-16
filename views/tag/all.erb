@@ -1,3 +1,9 @@
+<div id="transactions-top">
+<% @tags.each do |tag| %>
+
+  <h1>Number of <%= tag.tag.t_name %>: <%= @tags.count %></h1>
+<% end %>
+</div>
 <div id="transaction-page">
 
 
