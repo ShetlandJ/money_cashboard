@@ -6,10 +6,10 @@
   <p> Transaction amount: £<%= tag.amount %></p>
   <p> Date: <%= tag.transaction_date.strftime("%d ") %><a href="/december/<%= tag.transaction_date.strftime('%Y') %>" id="monthy"><%= tag.transaction_date.strftime("%B") %></a><%= tag.transaction_date.strftime(" %Y") %></p>
   <p> Transaction type:<br /></p>
-    <a href="/tags/<%= tag.tag.id %>/all" class="btn-tag">
-      <p class="<%= tag.tag.t_name %>"><span id="hover-transition"><%= tag.tag.t_name %></span>
+
+      <p class="<%= tag.tag.t_name %>"><%= tag.tag.t_name %>
       </p>
-    </a>
+
     <%= print tag %>
     <div id="edit-delete">
       <a href="/transactions/<%= tag.id %>/edit"><img src="edit.png" alt="edit"></a>
