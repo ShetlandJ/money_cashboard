@@ -8,6 +8,10 @@ img {
   width: 55px;
 }
 
+h2 {
+  text-align: center;
+}
+
 #wrapper {
   min-height:100%;
   position:relative;

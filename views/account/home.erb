@@ -1,3 +1,19 @@
-<% for account in @account %>
-Your salary is £<%= account.monthly_income %>
+<h1 id="headline">Edit my income level</h1>
+
+<% for my_account in @account %>
+
+<div id="new-transaction">
+  <form action="/account" method="POST" id="new-edit-form">
+
+    <label for="income">Edit your current income:</label>
+<div id="pound-sign">
+  <span>£</span>
+    <input type="number" name="income" id="income" value="<%= my_account.income %>"/ >
+  </div>
+
+    <input type="submit" value="Edit income amount" id="btn-new-transaction">
+
+  </form>
+</div>
+
 <% end %>

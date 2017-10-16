@@ -9,6 +9,7 @@ require_relative('./controllers/account_controller')
 
 get '/' do
   @accounts = Account.all()
+  @transactions = Transaction.all()
   @transactions_total = Transaction.total()
   @most_common_item = Transaction.most_common_tag()
   @most_spent_on = Transaction.most_spent_on()

@@ -1,12 +1,18 @@
 <div id="main-container">
 
   <div id="summary">
+    <h1>Welcome to YourCashboard</h1>
+    <p id="intro">
+      This is your portal to all your expenditure.
+    </p>
+
+
     <% @accounts.each do |account| %>
 
     <div id="monthly-spend">
-      <h1>
+      <h2>
         Your total spend this month is £<%= @transactions_total %>
-      </h1>
+      </h2>
     </div>
 
     <div id="monthly-left">
@@ -24,6 +30,7 @@
     <div id="most_common_tag">
       <h2>
         Your most common transaction was: <%= @most_common_item %> (<%= @most_common_tag_by_number %> times)
+
       </h2>
     </div>
 

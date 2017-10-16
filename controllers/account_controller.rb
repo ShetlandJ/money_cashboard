@@ -6,17 +6,19 @@ require_relative('../models/tag')
 require_relative('../models/vendor')
 require_relative('../models/transaction')
 #
+# get '/account' do
+#     @account = Account.all()
+#     erb (:"account/home")
+# end
+
 get '/account' do
-    @account = Account.all()
-    erb (:"account/home")
+  @account = Account.all()
+  erb ( :"account/home" )
 end
 
-# get '/tags/new' do
-#   erb (:"tag/new")
-# end
-#
-# post '/tags' do
-#   @tag = Tag.new(params)
-#   vendor.save()
-#   redirect to('/tags')
-# end
+post '/account' do
+  @account = Account.all().first
+  @account.change_income(params['income'].to_i)
+  @account.update()
+  redirect to('/')
+end

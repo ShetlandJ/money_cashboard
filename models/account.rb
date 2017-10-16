@@ -21,6 +21,10 @@ class Account
     @income / 52
   end
 
+  def change_income(value)
+    @income = value
+  end
+
   def save()
     sql = "INSERT INTO accounts
     (
