@@ -72,109 +72,204 @@ vendor13.save()
 vendor14.save()
 vendor15.save()
 
-transaction1 = Transaction.new({
-  'vendor_id' => vendor1.id,
-  'tag_id' => tag1.id,
-  'amount' => 120,
-  'transaction_date' => '01-October-2017'
-}
-)
+transaction1 = Transaction.new({'vendor_id' => vendor1.id,'tag_id' => tag1.id,'amount' => 120,'transaction_date' => '01-January-2017'})
 
-transaction2 = Transaction.new({
-  'vendor_id' => vendor2.id,
-  'tag_id' => tag2.id,
-  'amount' => 50,
-  'transaction_date' => '01-October-2017'
-}
-)
+transaction2 = Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id,'amount' => 50,'transaction_date' => '01-January-2017'})
 
-transaction3 = Transaction.new({
-  'vendor_id' => vendor4.id,
-  'tag_id' => tag4.id,
-  'amount' => 20,
-  'transaction_date' => '01-October-2017'
-}
-)
+transaction3 = Transaction.new({'vendor_id' => vendor4.id,'tag_id' => tag4.id,'amount' => 20,'transaction_date' => '01-January-2017'})
 
-transaction4 = Transaction.new({
-  'vendor_id' => vendor5.id,
-  'tag_id' => tag5.id,
-  'amount' => 10,
-  'transaction_date' => '01-October-2017'
-}
-)
+transaction4 = Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10,'transaction_date' => '01-January-2017'})
 
-transaction5 = Transaction.new({
-  'vendor_id' => vendor6.id,
-  'tag_id' => tag6.id,
-  'amount' => 450,
-  'transaction_date' => '03-October-2017'
-}
-)
+transaction5 = Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-January-2017'})
 
-transaction6 = Transaction.new({
-  'vendor_id' => vendor7.id,
-  'tag_id' => tag7.id,
-  'amount' => 20,
-  'transaction_date' => '01-October-2017'
-}
-)
+transaction6 = Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-January-2017'})
 
-transaction7 = Transaction.new({
-  'vendor_id' => vendor8.id,
-  'tag_id' => tag8.id,
-  'amount' => 9,
-  'transaction_date' => '02-October-2017'
-}
-)
+transaction7 = Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-January-2017'})
 
-transaction8 = Transaction.new({
-  'vendor_id' => vendor10.id,
-  'tag_id' => tag9.id,
-  'amount' => 31,
-  'transaction_date' => '14-October-2017'
-}
-)
 
-transaction9 = Transaction.new({
-  'vendor_id' => vendor10.id,
-  'tag_id' => tag9.id,
-  'amount' => 25,
-  'transaction_date' => '07-October-2017'
-}
-)
+transaction8 = Transaction.new({'vendor_id' => vendor10.id,'tag_id' => tag9.id,'amount' => 31,'transaction_date' => '14-October-2017'})
 
-transaction10 = Transaction.new({
-  'vendor_id' => vendor11.id,
-  'tag_id' => tag10.id,
-  'amount' => 100,
-  'transaction_date' => '05-October-2017'
-}
-)
+transaction9 = Transaction.new({'vendor_id' => vendor10.id,'tag_id' => tag9.id,'amount' => 25,'transaction_date' => '07-October-2017'})
 
-transaction11 = Transaction.new({
-  'vendor_id' => vendor11.id,
-  'tag_id' => tag10.id,
-  'amount' => 120,
-  'transaction_date' => '19-October-2017'
-}
-)
+transaction10 = Transaction.new({'vendor_id' => vendor11.id,'tag_id' => tag10.id,'amount' => 100,'transaction_date' => '05-October-2017'})
 
-transaction12 = Transaction.new({
-  'vendor_id' => vendor13.id,
-  'tag_id' => tag13.id,
-  'amount' => 5,
-  'transaction_date' => '07-October-2017'
-}
-)
+transaction11 = Transaction.new({'vendor_id' => vendor11.id,'tag_id' => tag10.id,'amount' => 120,'transaction_date' => '19-October-2017'})
 
-transaction13 = Transaction.new({
-  'vendor_id' => vendor13.id,
-  'tag_id' => tag13.id,
-  'amount' => 9,
-  'transaction_date' => '14-November-2017'
-}
-)
+transaction12 = Transaction.new({'vendor_id' => vendor13.id,'tag_id' => tag13.id,'amount' => 5,'transaction_date' => '07-October-2017'})
+
+transaction13 = Transaction.new({'vendor_id' => vendor13.id,'tag_id' => tag13.id,'amount' => 9,'transaction_date' => '14-November-2017'})
+
+transaction14 = Transaction.new({'vendor_id' => vendor1.id,'tag_id' => tag1.id,'amount' => 120,'transaction_date' => '01-February-2017'})
+
+transaction15 = Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id,'amount' => 50,'transaction_date' => '01-February-2017'})
+
+transaction16 = Transaction.new({'vendor_id' => vendor4.id,'tag_id' => tag4.id,'amount' => 20,'transaction_date' => '01-February-2017'})
+
+transaction17 = Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10,'transaction_date' => '01-February-2017'})
+
+transaction18 = Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-February-2017'})
+
+transaction19 = Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-February-2017'})
+
+transaction20 = Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-February-2017'})
+
+transaction21 = Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-March-2017'})
+
+transaction22 = Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-March-2017'})
+
+transaction23 = Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-March-2017'})
+
+transaction24 = Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-March-2017'})
+
+transaction25 = Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-March-2017'})
+
+transaction26 = Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-March-2017'})
+
+transaction27 = Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-March-2017'})
+
+transaction28 = Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-April-2017'})
+
+transaction29 = Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-April-2017'})
+
+transaction30 = Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-April-2017'})
+
+transaction31 = Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-April-2017'})
+
+transaction32 = Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-April-2017'})
+
+transaction33 = Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-April-2017'})
+
+transaction34 = Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-April-2017'})
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 1500,'transaction_date' => '01-May-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-June-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-July-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-August-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-September-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-October-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-November-2017'}).save
+
+Transaction.new({'vendor_id' => vendor1.id, 'tag_id' => tag1.id, 'amount' => 120, 'transaction_date' => '01-December-2017'}).save
+
+Transaction.new({'vendor_id' => vendor2.id,'tag_id' => tag2.id, 'amount' => 50, 'transaction_date' => '01-December-2017'}).save
+
+Transaction.new({'vendor_id' => vendor4.id, 'tag_id' => tag4.id, 'amount' => 20, 'transaction_date' => '01-December-2017'}).save
+
+Transaction.new({'vendor_id' => vendor5.id,'tag_id' => tag5.id,'amount' => 10, 'transaction_date' => '01-December-2017'}).save
+
+Transaction.new({'vendor_id' => vendor6.id,'tag_id' => tag6.id,'amount' => 450,'transaction_date' => '01-December-2017'}).save
+
+Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'transaction_date' => '01-December-2017'}).save
+
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-December-2017'}).save
+
+
 
 transaction1.save()
 transaction2.save()
@@ -189,6 +284,27 @@ transaction10.save()
 transaction11.save()
 transaction12.save()
 transaction13.save()
+transaction14.save()
+transaction15.save()
+transaction16.save()
+transaction17.save()
+transaction18.save()
+transaction19.save()
+transaction20.save()
+transaction21.save()
+transaction22.save()
+transaction23.save()
+transaction24.save()
+transaction25.save()
+transaction26.save()
+transaction27.save()
+transaction28.save()
+transaction29.save()
+transaction30.save()
+transaction31.save()
+transaction32.save()
+transaction33.save()
+transaction34.save()
 
 
 

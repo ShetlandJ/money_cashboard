@@ -64,11 +64,23 @@
             <td>Limit</td>
           </tr>
           <% @months.each_with_index do |month_name, month_number| %>
-            <tr>
-              <td><%= month_name %></td>
-              <td><%= Transaction.total_by_month(month_number+1) %></td>
-              <td></td>
-            </tr>
+          <tr>
+            <td><%= month_name %></td>
+            <td><%= month_spend = Transaction.total_by_month(month_number+1) %></td>
+            <% if month_spend >= 2000 %>
+            <td id="limit-cell">
+
+              <div id="inner-table-red" style="width: <%= (month_spend.to_f/2333) * 100 %>%; background-color: red; height: 100%;">
+              </div>
+            </td>
+
+            <% else %>
+            <td id="limit-cell">
+              <div id="inner-table-green" style="width: <%= (month_spend.to_f/2333) * 100 %>%; background-color: green; height: 100%;">
+              </div>
+            </td>
+            <% end %>
+          </tr>
           <% end %>
         </tbody>
       </table>
