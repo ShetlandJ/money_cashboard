@@ -93,4 +93,12 @@ class Tag
       return transactions.map {|transaction| Transaction.new(transaction)}
     end
 
+    def self.all_types( )
+      sql = "SELECT tags.t_type FROM tags GROUP BY tags.t_type;"
+      values = []
+      tags = SqlRunner.run(sql, values)
+      return tags.values.flatten
+      # .map {|tag| Tag.new(tag)}
+    end
+
   end

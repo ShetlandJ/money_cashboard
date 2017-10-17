@@ -182,6 +182,20 @@ p.Non-essential:hover:after {
   transition: 0.5s;
 }
 
+article[id="Electricity\ Bill"]:hover, [id="Council\ Tax"]:hover, [id="Gas\ Bill"]:hover, [id="Mortgage"]:hover, [id="Internet"]:hover {
+  border: solid 4px #C0C0C0;
+  background-color: #f2f2f2;
+}
+
+article#Essential:hover {
+  border: solid 4px #C0C0C0;
+  background-color: #f2f2f2;
+}
+
+article#Non-essential:hover {
+  border: solid 4px #FA8072;
+  background-color: #fee9e6;
+}
 
 /*utilities tag CSS*/
 /*p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
@@ -207,13 +221,9 @@ transition: 0.5s;
 
 
 
-article[id="Electricity\ Bill"]:hover, [id="Council\ Tax"]:hover, [id="Gas\ Bill"]:hover, [id="Mortgage"]:hover, [id="Internet"]:hover {
-  border: solid 4px #C0C0C0;
-  background-color: #f2f2f2;
-}
 
 /*essentials*/
-p[class='Mobile\ Phone'], [class='Groceries']{
+/*p[class='Mobile\ Phone'], [class='Groceries']{
 color: black;
 background-color: #66cc91;
 border: solid 1px;
@@ -237,10 +247,10 @@ p[class='Mobile\ Phone']:hover:after, [class='Groceries']:hover:after{
 article[id='Mobile\ Phone']:hover, [id='Groceries']:hover {
   border: solid 4px #66cc91;
   background-color: #ecf9f1;
-}
+}*/
 
 /*bonus*/
-p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class='Drinks'], [class='Video\ Games'], [class='Days\ out']{
+/*p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class='Drinks'], [class='Video\ Games'], [class='Days\ out']{
   color: black;
   background-color: #FA8072;
   border: solid 1px;
@@ -259,12 +269,12 @@ p[class='Subscription\ Services']:hover:after, [class='Gym']:hover:after, [class
   content: '\00bb';
   opacity: 1;
   transition: 0.5s;
-}
+}*/
 
-article[id='Subscription\ Services']:hover, [id='Gym']:hover, [id='Dinner\ Out']:hover, [id='Drinks']:hover, [id='Video\ Games']:hover, [id='Days\ out']:hover {
+/*article[id='Subscription\ Services']:hover, [id='Gym']:hover, [id='Dinner\ Out']:hover, [id='Drinks']:hover, [id='Video\ Games']:hover, [id='Days\ out']:hover {
   border: solid 4px #FA8072;
   background-color: #fee9e6;
-}
+}*/
 
 .btn-tag {
   text-decoration: none;

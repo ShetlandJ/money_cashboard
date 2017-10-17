@@ -14,6 +14,7 @@ end
 get '/transactions/new' do
   @vendors = Vendor.all()
   @tags = Tag.all()
+  @tag_types = Tag.all_types()
   erb (:"transaction/new")
 end
 

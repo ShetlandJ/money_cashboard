@@ -9,7 +9,7 @@
 <div id="transaction-page">
 
 <% @transactions.each do |transaction| %>
-<article id="<%= transaction.tag.t_name %>">
+<article id="<%= transaction.tag.t_type %>">
   <p id="vendor-name"><strong><%= transaction.vendor.name %></strong></p>
   <p> Transaction amount: £<%= transaction.amount %></p>
   <p> Date: <%= transaction.transaction_date.strftime("%d ") %><a href="/december/<%= transaction.transaction_date.strftime('%Y') %>" id="monthy"><%= transaction.transaction_date.strftime("%B") %></a><%= transaction.transaction_date.strftime(" %Y") %></p>

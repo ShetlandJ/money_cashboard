@@ -24,6 +24,17 @@
       <% end %>
     </select>
 
+    <label for="tag_type"></label>
+    <select name="tag_type" id="tag-dropdown">
+      <option disabled selected value> -- select type -- </option>
+      <% for type in @tag_types %>
+      <option value="<%= tag.id %>">
+        <%= type %>
+      </option>
+      <% end %>
+    </select>
+
+
     <div id="pound-sign">
 
       <span>£</span>
