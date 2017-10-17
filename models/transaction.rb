@@ -162,6 +162,11 @@ class Transaction
       return transactions[0].values.first
     end
 
-
-
+    def self.date(month, year)
+      sql = "SELECT * FROM transactions WHERE EXTRACT(month FROM transaction_date) = $1 AND EXTRACT(year FROM transaction_date) = $2"
+      values = [month, year]
+      transactions = SqlRunner.run(sql, values)
+      result = transactions.map { |transaction| Transaction.new( transaction ) }
+      return result
+    end
   end

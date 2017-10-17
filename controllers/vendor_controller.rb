@@ -9,6 +9,8 @@ get '/vendors' do
 end
 
 get '/vendors/new' do
+  @tags = Tag.all()
+  @vendors = Vendor.all()
   erb (:"vendors/new")
 end
 

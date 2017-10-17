@@ -6,7 +6,6 @@
       This is your portal to all your expenditure.
     </p>
 
-
     <% @accounts.each do |account| %>
 
     <div id="monthly-spend">
@@ -17,8 +16,13 @@
 
     <div id="monthly-left">
       <h2>
+        <% if account.monthly_income - @transactions_total > 0 %>
         Your total monthly leftover is £<%= account.monthly_income - @transactions_total %>
+        <h2>
+        <% elsif account.monthly_income - @transactions_total < 0 %>
+        <h2 id="trouble">Your total monthly leftover is £<%= account.monthly_income - @transactions_total %> <img id="warning" src="exclamation-mark.png" alt="budget warning" height="16" width="16">
       </h2>
+      <% end %>
     </div>
 
     <div id="most_spent_on">
@@ -34,15 +38,21 @@
       </h2>
     </div>
 
+    <div id="menu-options">
+
+      <a href="/transactions/new" class="menu-item">+ Add a spend</a>
+      <a href="/vendors/new" class="menu-item">+ Add a new vendor</a>
+      <a href="/tags/new" class="menu-item">+ Add a new tag</a>
+      <a href="#" class="menu-item">Transaction history</a>
+
+    </div>
+
   </div>
   <% end %>
 
   <div id="menu-options">
 
-    <a href="/transactions/new" class="menu-item">+ Add a spend</a>
-    <a href="/vendors/new" class="menu-item">+ Add a new vendor</a>
-    <a href="/tags/new" class="menu-item">+ Add a new tag</a>
-    <a href="#" class="menu-item">Transaction history</a>
+
 
   </div>
 

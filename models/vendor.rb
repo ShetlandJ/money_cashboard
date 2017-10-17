@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('tag')
 
 class Vendor
 
@@ -50,7 +51,6 @@ class Vendor
       sql = "DELETE FROM vendors"
       values = []
       SqlRunner.run( sql, values )
-
     end
 
     def self.all()
@@ -68,5 +68,23 @@ class Vendor
       result = Vendor.new( vendor.first )
       return result
     end
+
+    def self.all_tag_types()
+      sql = "SELECT * FROM tags WHERE tags.t_type = $1"
+      values = [@id]
+      vendors = SqlRunner.run( sql, values )
+      result = vendors.map { |vendor| Vendor.new( vendor ) }
+      return result
+    end
+
+    # def self.tag_types()
+    #   sql = "SELECT tags.*, vendors.* FROM tags
+    #   INNER JOIN transactions ON
+    #   transactions.tag_id = tags.id
+    #   WHERE vendors.id = $1;"
+    #   values = [@id]
+    #   customers = SqlRunner.run(sql, values)
+    #   return customers.map { |customer| Customer.new( customer ) }
+    # end
 
   end

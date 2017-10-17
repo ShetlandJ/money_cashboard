@@ -3,9 +3,19 @@ body {
   font-family: raleway;
 }
 
-img {
+img#logo {
   height: 55px;
   width: 55px;
+}
+
+img#edit-delete {
+  height: 55px;
+  width: 55px;
+}
+
+img#warning {
+  height: 20px;
+  width: 20px;
 }
 
 h2 {
@@ -288,4 +298,8 @@ p[class='Subscription\ Services']:hover:after, [class='Gym']:hover:after, [class
 
 p#vendor-name {
   font-size: 18px;
+}
+
+h2#trouble {
+  color: red;
 }

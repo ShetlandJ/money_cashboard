@@ -11,10 +11,10 @@
 <p><%= vendor.name %></p>
 <%= print vendor %>
 <div id="edit-delete">
-  <a href="/vendors/<%= vendor.id %>/edit"><img src="edit.png" alt="edit"></a>
+  <a href="/vendors/<%= vendor.id %>/edit"><img id="edit-delete" src="edit.png" alt="edit"></a>
   <form action="/vendors/<%= vendor.id %>/delete" method="POST">
     <button type="submit" id="btn-delete">
-      <img src="trash.png" alt="delete" id="delete-btn">
+      <img id="edit-delete" src="trash.png" alt="delete" id="delete-btn">
     </button>
   </form>
 </div>

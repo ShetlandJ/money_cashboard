@@ -11,6 +11,8 @@ get '/tags' do
 end
 
 get '/tags/new' do
+  @tags = Tag.all()
+  @tag_types = Tag.all_types()
   erb (:"tag/new")
 end
 
