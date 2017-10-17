@@ -1,0 +1,7 @@
+<div id="transactions-top">
+
+  <h1 id="headline">Total transactions in <%= @transactions[0].transaction_date.strftime("%B") %>:
+    <%= @transactions.count %>
+</h1>
+  <a href="/transactions/new" id="btn-add-new">&nbsp;+&nbsp;</a>
+</div>

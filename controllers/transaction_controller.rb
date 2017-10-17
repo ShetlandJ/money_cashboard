@@ -12,7 +12,9 @@ get '/transactions' do
 end
 
 get '/transactions/:year/:month' do
-  @transactions = Transaction.all()
+  @transactions = Transaction.by_date(params[:year], params[:month])
+  @all_transactions = Transaction.all()
+  @month = params[:month]
   erb (:"transaction/by_date")
 end
 
