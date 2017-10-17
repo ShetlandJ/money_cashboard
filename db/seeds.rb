@@ -146,7 +146,7 @@ transaction9 = Transaction.new({
 
 transaction10 = Transaction.new({
   'vendor_id' => vendor11.id,
-  'tag_id' => tag11.id,
+  'tag_id' => tag10.id,
   'amount' => 100,
   'transaction_date' => '05-December-2017'
 }
@@ -154,7 +154,7 @@ transaction10 = Transaction.new({
 
 transaction11 = Transaction.new({
   'vendor_id' => vendor11.id,
-  'tag_id' => tag11.id,
+  'tag_id' => tag10.id,
   'amount' => 120,
   'transaction_date' => '19-December-2017'
 }
