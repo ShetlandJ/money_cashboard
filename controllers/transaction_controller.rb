@@ -11,6 +11,14 @@ get '/transactions' do
   erb (:"transaction/home")
 end
 
+
+get '/transactions/:id/edit' do
+  @transactions = Transaction.find(params['id'])
+  @vendors = Vendor.all()
+  @tags = Tag.all()
+  erb ( :"transaction/edit" )
+end
+
 get '/transactions/:year/:month' do
   @transactions = Transaction.by_date(params[:year], params[:month])
   @all_transactions = Transaction.all()
@@ -28,13 +36,6 @@ end
 get '/transactions/:id' do
   @transactions = Transaction.find(params['id'])
   erb ( :"transaction/show" )
-end
-
-get '/transactions/:id/edit' do
-  @transactions = Transaction.find(params['id'])
-  @vendors = Vendor.all()
-  @tags = Tag.all()
-  erb ( :"transaction/edit" )
 end
 
 post '/transactions/create' do

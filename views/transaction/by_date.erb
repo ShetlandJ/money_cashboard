@@ -20,10 +20,10 @@
     </a>
     <%= print transaction %>
     <div id="edit-delete">
-      <a href="/transactions/<%= transaction.id %>/edit"><img id="edit-delete" src="edit.png" alt="edit"></a>
+      <a href="/transactions/<%= transaction.id %>/edit"><img id="edit-delete" src="/edit.png" alt="edit"></a>
       <form action="/transactions/<%= transaction.id %>/delete" method="POST">
         <button type="submit" id="btn-delete">
-          <img id="edit-delete" src="trash.png" alt="delete" id="delete-btn">
+          <img id="edit-delete" src="/trash.png" alt="delete" id="delete-btn">
         </button>
       </form>
     </div>
