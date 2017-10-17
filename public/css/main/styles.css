@@ -217,8 +217,16 @@ table {
 
 td, th {
     border: 1px solid transparent; /* No more visible border */
-    height: 30px;
+    height: 55px;
     transition: all 0.3s;  /* Simple transition for hover effect */
+}
+
+td#table-small {
+    width: 20%;
+}
+
+td#limit-cell:hover {
+    background: 0;
 }
 
 th {

@@ -269,6 +269,13 @@ Transaction.new({'vendor_id' => vendor7.id,'tag_id' => tag7.id,'amount' => 20,'t
 
 Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-December-2017'}).save
 
+Transaction.new({'vendor_id' => vendor8.id,'tag_id' => tag8.id,'amount' => 9,'transaction_date' => '01-February-2017'}).save()
+
+Transaction.new({'vendor_id' => vendor10.id,'tag_id' => tag9.id,'amount' => 100,'transaction_date' => '01-February-2017'}).save()
+
+Transaction.new({'vendor_id' => vendor10.id,'tag_id' => tag9.id,'amount' => 200,'transaction_date' => '01-February-2017'}).save()
+
+Transaction.new({'vendor_id' => vendor10.id,'tag_id' => tag9.id,'amount' => 350,'transaction_date' => '01-February-2017'}).save()
 
 
 transaction1.save()

@@ -52,7 +52,6 @@
       </div>
 
     </div>
-    <% end %>
 
     <div id="menu-options">
 
@@ -65,18 +64,24 @@
           </tr>
           <% @months.each_with_index do |month_name, month_number| %>
           <tr>
-            <td><%= month_name %></td>
-            <td><%= month_spend = Transaction.total_by_month(month_number+1) %></td>
+            <td id="table-small"><%= month_name %></td>
+            <td id="table-small"><%= month_spend = Transaction.total_by_month(month_number+1) %></td>
             <% if month_spend >= 2000 %>
             <td id="limit-cell">
 
-              <div id="inner-table-red" style="width: <%= (month_spend.to_f/2333) * 100 %>%; background-color: red; height: 100%;">
+              <div id="inner-table-red" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #e74c3c; height: 100%; border-radius: 0px 10px 10px 0px;">
+              </div>
+            </td>
+
+            <% elsif month_spend < 2000 && month_spend >= 1300 %>
+            <td id="limit-cell">
+              <div id="inner-table-orange" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #f39c12; height: 100%; border-radius: 0px 10px 10px 0px;">
               </div>
             </td>
 
             <% else %>
             <td id="limit-cell">
-              <div id="inner-table-green" style="width: <%= (month_spend.to_f/2333) * 100 %>%; background-color: green; height: 100%;">
+              <div id="inner-table-green" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #2ecc71; height: 100%; border-radius: 0px 10px 10px 0px;">
               </div>
             </td>
             <% end %>
@@ -87,4 +92,5 @@
 
     </div>
 
+    <% end %>
   </div>
