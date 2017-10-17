@@ -140,8 +140,7 @@ button#btn-delete {
   text-align:center;
 }
 
-/*utilities tag CSS*/
-p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
+p.Essential {
   color: black;
   background-color: #C0C0C0;
   border: solid 1px;
@@ -150,7 +149,51 @@ p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [clas
   padding: 4px 0px 4px 0px;
 }
 
-p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
+p.Essential:hover {
+  right: -15px;
+  transition: 0.5s;
+  padding-right: 20px;
+}
+
+p.Essential:hover:after {
+content: '>>';
+opacity: 1;
+transition: 0.5s;
+}
+
+p.Non-essential {
+    color: black;
+    background-color: #FA8072;
+    border: solid 1px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 4px 0px 4px 0px;
+}
+
+p.Non-essential:hover {
+  right: -15px;
+  transition: 0.5s;
+  padding-right: 20px;
+  }
+
+p.Non-essential:hover:after {
+  content: '>>';
+  opacity: 1;
+  transition: 0.5s;
+}
+
+
+/*utilities tag CSS*/
+/*p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
+  color: black;
+  background-color: #C0C0C0;
+  border: solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 4px 0px 4px 0px;
+}*/
+
+/*p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
 right: -15px;
 transition: 0.5s;
 padding-right: 20px;
@@ -160,7 +203,9 @@ p[class="Electricity\ Bill"]:hover:after, [class="Council\ Tax"]:hover:after, [c
 content: '\00bb';
 opacity: 0;
 transition: 0.5s;
-}
+}*/
+
+
 
 article[id="Electricity\ Bill"]:hover, [id="Council\ Tax"]:hover, [id="Gas\ Bill"]:hover, [id="Mortgage"]:hover, [id="Internet"]:hover {
   border: solid 4px #C0C0C0;

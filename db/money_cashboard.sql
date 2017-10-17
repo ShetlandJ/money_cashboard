@@ -10,7 +10,8 @@ CREATE TABLE accounts (
 
 CREATE TABLE tags (
   id SERIAL4 PRIMARY KEY,
-  t_name VARCHAR(255)
+  t_name VARCHAR(255),
+  t_type VARCHAR(255)
 );
 
 CREATE TABLE vendors (

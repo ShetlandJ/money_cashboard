@@ -4,25 +4,27 @@ require_relative('transaction')
 
 class Tag
 
-  attr_accessor :t_name
+  attr_accessor :t_name, :t_type
   attr_reader :id
 
   def initialize( options )
     @id = options['id'].to_i
     @t_name = options['t_name']
+    @t_type = options['t_type']
   end
 
   def save()
     sql = "INSERT INTO tags
     (
-      t_name
+      t_name,
+      t_type
     )
     VALUES
     (
-      $1
+      $1, $2
     )
     RETURNING *"
-    values = [@t_name]
+    values = [@t_name, @t_type]
     user_data = SqlRunner.run(sql, values)
     @id = user_data.first()['id'].to_i
   end
@@ -31,13 +33,14 @@ class Tag
     sql = "UPDATE tags
     SET
     (
-      t_name
+      t_name,
+      t_type
       ) =
       (
         $1
       )
       WHERE id = $2"
-      values = [@t_name, @id]
+      values = [@t_name, @t_type, @id]
       SqlRunner.run( sql, values )
     end
 
@@ -72,7 +75,7 @@ class Tag
     def vendors()
       sql = "SELECT vendors.* FROM vendors WHERE id = $1;"
       values = [@id]
-      vendors = SqlRunner.run(sqxl, values)
+      vendors = SqlRunner.run(sql, values)
       return vendors.map {|vendor| Vendor.new(vendor)}
     end
 
