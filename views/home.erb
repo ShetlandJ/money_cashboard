@@ -1,5 +1,7 @@
 <div id="main-container">
 
+
+
   <div id="summary">
     <h1>Welcome to YourCashboard</h1>
     <p id="intro">
@@ -10,50 +12,61 @@
 
     <div id="monthly-spend">
       <h2>
-        Your total spend this month is £<%= @transactions_total %>
-      </h2>
-    </div>
+        Your total spend in <%= Date.today.strftime("%B") %> is £<%= @total_by_month %>
+      </br/>
+      (Year to date: £<%= @transactions_total %>)
+    </h2>
+  </div>
 
-    <div id="monthly-left">
+  <div id="monthly-left">
+    <h2>
+      <% if account.monthly_income - @total_by_month > 0 %>
+      Your total monthly leftover is £<%= account.monthly_income - @total_by_month %>
       <h2>
-        <% if account.monthly_income - @transactions_total > 0 %>
-        Your total monthly leftover is £<%= account.monthly_income - @transactions_total %>
+        <% elsif account.monthly_income - @total_by_month < 0 %>
+        <h2 id="trouble">Your total monthly leftover is £<%= account.monthly_income - @total_by_month %> <img id="warning" src="exclamation-mark.png" alt="budget warning" height="16" width="16">
+        </h2>
+        <% end %>
+      </div>
+
+      <div id="most_spent_on">
         <h2>
-        <% elsif account.monthly_income - @transactions_total < 0 %>
-        <h2 id="trouble">Your total monthly leftover is £<%= account.monthly_income - @transactions_total %> <img id="warning" src="exclamation-mark.png" alt="budget warning" height="16" width="16">
-      </h2>
-      <% end %>
-    </div>
+          You spent the most on <%= @most_spent_on %><br />(£<%= @grouped_cost %>, <%= ((@grouped_cost.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
+        </h2>
+      </div>
 
-    <div id="most_spent_on">
-      <h2>
-        You spent the most on <%= @most_spent_on %><br />(£<%= @grouped_cost %>, <%= ((@grouped_cost.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
-      </h2>
-    </div>
+      <div id="most_common_tag">
+        <h2>
+          Your most common transaction was: <%= @most_common_item %> (<%= @most_common_tag_by_number %> times)
 
-    <div id="most_common_tag">
-      <h2>
-        Your most common transaction was: <%= @most_common_item %> (<%= @most_common_tag_by_number %> times)
+        </h2>
+      </div>
 
-      </h2>
+      <div id="menu-options">
+
+        <a href="/transactions/new" class="menu-item">+ Add a spend</a>
+        <a href="/vendors/new" class="menu-item">+ Add a new vendor</a>
+        <a href="/tags/new" class="menu-item">+ Add a new tag</a>
+        <a href="#" class="menu-item">Transaction history</a>
+
+      </div>
+
     </div>
+    <% end %>
 
     <div id="menu-options">
 
-      <a href="/transactions/new" class="menu-item">+ Add a spend</a>
-      <a href="/vendors/new" class="menu-item">+ Add a new vendor</a>
-      <a href="/tags/new" class="menu-item">+ Add a new tag</a>
-      <a href="#" class="menu-item">Transaction history</a>
+      <table>
+        <tbody>
+          <% @months.each_with_index do |month_name, month_number| %>
+            <tr>
+              <td><%= month_name %></td>
+              <td><%= Transaction.total_by_month(month_number+1) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
     </div>
 
   </div>
-  <% end %>
-
-  <div id="menu-options">
-
-
-
-  </div>
-
-</div>

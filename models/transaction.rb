@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner')
 require_relative('tag')
 require_relative('vendor')
+require('date')
 
 class Transaction
 
@@ -169,4 +170,12 @@ class Transaction
       result = transactions.map { |transaction| Transaction.new( transaction ) }
       return result
     end
+
+    def self.total_by_month(month)
+      sql = "SELECT SUM(amount) FROM transactions WHERE EXTRACT(month FROM transaction_date) = $1"
+      values = [month]
+      transactions = SqlRunner.run( sql, values )
+      return transactions[0].values.first.to_i
+    end
+
   end
