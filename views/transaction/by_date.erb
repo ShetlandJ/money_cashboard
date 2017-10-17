@@ -5,3 +5,30 @@
 </h1>
   <a href="/transactions/new" id="btn-add-new">&nbsp;+&nbsp;</a>
 </div>
+
+<div id="transaction-page">
+
+<% @transactions.each do |transaction| %>
+<article id="<%= transaction.tag.t_type %>">
+  <p id="vendor-name"><strong><%= transaction.vendor.name %></strong></p>
+  <p> Transaction amount: £<%= transaction.amount %></p>
+  <p> Date: <%= transaction.transaction_date.strftime("%d ") %><a href="transactions/<%= transaction.transaction_date.strftime('%Y') %>/<%= transaction.transaction_date.strftime('%m') %>" id="monthy"><%= transaction.transaction_date.strftime("%B") %></a><%= transaction.transaction_date.strftime(" %Y") %></p>
+  <p> Transaction type:<br /></p>
+    <a href="/tags/<%= transaction.tag.id %>/all" class="btn-tag">
+      <p class="<%= transaction.tag.t_type %>"><span id="hover-transition"><%= transaction.tag.t_name %></span>
+      </p>
+    </a>
+    <%= print transaction %>
+    <div id="edit-delete">
+      <a href="/transactions/<%= transaction.id %>/edit"><img id="edit-delete" src="edit.png" alt="edit"></a>
+      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+        <button type="submit" id="btn-delete">
+          <img id="edit-delete" src="trash.png" alt="delete" id="delete-btn">
+        </button>
+      </form>
+    </div>
+  </form>
+</article>
+<% end %>
+
+</div>
