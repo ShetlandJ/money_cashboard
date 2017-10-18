@@ -75,16 +75,16 @@
     <% @pie_slice_var = 0 %>
     <% @transactions.each_with_index do |transaction, n| %>
     <% @pie_degree += ((transaction.amount.to_f / @transaction_total).round(2) * 360) %>
-    <div class="hold" id="pieSlice<%= @pie_slice_var += 1 %>">
+    <div class="hold" class="pieSlice<%= @pie_slice_var += 1 %>">
 
       <div class="pie"></div>
     </div>
     <style>
-    .pieContainer:nth-child(<%= n + 1 %>) #pieSlice{
+    .pieContainer:nth-child(<%= n + 1 %>) .pieSlice{
       transform: rotate(<%= @pie_degree %>deg);
     }
 
-    .pieContainer:nth-child(<%= n + 1 %>) #pieSlice {
+    .pieContainer:nth-child(<%= n + 1 %>) .pieSlice {
       background-color: <%= @color_randomiser %>;
       transform:rotate(<%= @pie_degree %>deg);
     }

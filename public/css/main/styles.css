@@ -166,25 +166,25 @@ p.Essential:hover {
 }
 
 p.Essential:hover:after {
-content: '>>';
-opacity: 1;
-transition: 0.5s;
+  content: '>>';
+  opacity: 1;
+  transition: 0.5s;
 }
 
 p.Non-essential {
-    color: black;
-    background-color: #FA8072;
-    border: solid 1px;
-    border-radius: 5px;
-    text-align: center;
-    padding: 4px 0px 4px 0px;
+  color: black;
+  background-color: #FA8072;
+  border: solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 4px 0px 4px 0px;
 }
 
 p.Non-essential:hover {
   right: -15px;
   transition: 0.5s;
   padding-right: 20px;
-  }
+}
 
 p.Non-essential:hover:after {
   content: '>>';
@@ -208,35 +208,36 @@ article#Non-essential:hover {
 }
 
 table {
-    color: #333;
-    font-family: Helvetica, Arial, sans-serif;
-    width: 640px;
-    border-collapse:
-    collapse; border-spacing: 0;
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  width: 640px;
+  border-collapse:
+  collapse; border-spacing: 0;
+  margin-top: 25px;
 }
 
 td, th {
-    border: 1px solid transparent; /* No more visible border */
-    height: 55px;
-    transition: all 0.3s;  /* Simple transition for hover effect */
+  border: 1px solid transparent; /* No more visible border */
+  height: 55px;
+  transition: all 0.3s;  /* Simple transition for hover effect */
 }
 
 td#table-small {
-    width: 20%;
+  width: 20%;
 }
 
 td#limit-cell:hover {
-    background: 0;
+  background: 0;
 }
 
 th {
-    background: #DFDFDF;  /* Darken header a bit */
-    font-weight: bold;
+  background: #DFDFDF;  /* Darken header a bit */
+  font-weight: bold;
 }
 
 td {
-    background: #FAFAFA;
-    text-align: center;
+  background: #FAFAFA;
+  text-align: center;
 }
 
 /* Cells in even rows (2,4,6...) are one color */
@@ -248,15 +249,22 @@ tr:nth-child(odd) td { background: #FEFEFE; }
 tr td:hover { background: #666; color: #FFF; }
 /* Hover cell effect! */
 
+@media only screen and (max-width: 800px) {
+    #main-container {
+        flex-direction: column;
+        height: 100%
+    }
+}
+
 
 /*utilities tag CSS*/
 /*p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
-  color: black;
-  background-color: #C0C0C0;
-  border: solid 1px;
-  border-radius: 5px;
-  text-align: center;
-  padding: 4px 0px 4px 0px;
+color: black;
+background-color: #C0C0C0;
+border: solid 1px;
+border-radius: 5px;
+text-align: center;
+padding: 4px 0px 4px 0px;
 }*/
 
 /*p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
@@ -283,47 +291,47 @@ padding: 4px 0px 4px 0px;
 }
 
 p[class='Mobile\ Phone']:hover, [class='Groceries']:hover{
-  right: -15px;
-  transition: 0.5s;
-  padding-right: 20px;
+right: -15px;
+transition: 0.5s;
+padding-right: 20px;
 }
 
 p[class='Mobile\ Phone']:hover:after, [class='Groceries']:hover:after{
-  content: '\00bb';
-  opacity: 1;
-  transition: 0.5s;
+content: '\00bb';
+opacity: 1;
+transition: 0.5s;
 }
 
 article[id='Mobile\ Phone']:hover, [id='Groceries']:hover {
-  border: solid 4px #66cc91;
-  background-color: #ecf9f1;
+border: solid 4px #66cc91;
+background-color: #ecf9f1;
 }*/
 
 /*bonus*/
 /*p[class='Subscription\ Services'], [class='Gym'], [class='Dinner\ Out'], [class='Drinks'], [class='Video\ Games'], [class='Days\ out']{
-  color: black;
-  background-color: #FA8072;
-  border: solid 1px;
-  border-radius: 5px;
-  text-align: center;
-  padding: 4px 0px 4px 0px;
+color: black;
+background-color: #FA8072;
+border: solid 1px;
+border-radius: 5px;
+text-align: center;
+padding: 4px 0px 4px 0px;
 }
 
 p[class='Subscription\ Services']:hover, [class='Gym']:hover, [class='Dinner\ Out']:hover, [class='Drinks']:hover, [class='Video\ Games']:hover, [class='Days\ out']:hover {
-  right: -15px;
-  transition: 0.5s;
-  padding-right: 20px;
+right: -15px;
+transition: 0.5s;
+padding-right: 20px;
 }
 
 p[class='Subscription\ Services']:hover:after, [class='Gym']:hover:after, [class='Dinner\ Out']:hover:after, [class='Drinks']:hover:after, [class='Video\ Games']:hover:after, [class='Days\ out']:hover:after{
-  content: '\00bb';
-  opacity: 1;
-  transition: 0.5s;
+content: '\00bb';
+opacity: 1;
+transition: 0.5s;
 }*/
 
 /*article[id='Subscription\ Services']:hover, [id='Gym']:hover, [id='Dinner\ Out']:hover, [id='Drinks']:hover, [id='Video\ Games']:hover, [id='Days\ out']:hover {
-  border: solid 4px #FA8072;
-  background-color: #fee9e6;
+border: solid 4px #FA8072;
+background-color: #fee9e6;
 }*/
 
 .btn-tag {
