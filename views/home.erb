@@ -48,8 +48,6 @@
         <a href="/transactions/new" class="menu-item">+ Add a spend</a>
         <a href="/vendors/new" class="menu-item">+ Add a new vendor</a>
         <a href="/tags/new" class="menu-item">+ Add a new tag</a>
-        <a href="#" class="menu-item">Transaction history</a>
-
       </div>
 
     </div>
@@ -112,15 +110,11 @@
             font-size: 18px;
           }
 
-
-
           #inner-table-green:hover:after {
             transition: 1s ease;
             content: '<%= ((month_spend.to_f/account.monthly_income) * 100).round(0) %>%';
             color: black;
           }
-
-
 
           </style>
         </div>

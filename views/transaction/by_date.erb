@@ -2,18 +2,106 @@
 
   <h1 id="headline">Total transactions in <%= @transactions[0].transaction_date.strftime("%B") %>:
     <%= @transactions.count %>
-</h1>
+  </h1>
   <a href="/transactions/new" id="btn-add-new">&nbsp;+&nbsp;</a>
 </div>
 
-<div id="transaction-page">
 
+<% @transaction_total = 0 %>
 <% @transactions.each do |transaction| %>
-<article id="<%= transaction.tag.t_type %>">
-  <p id="vendor-name"><strong><%= transaction.vendor.name %></strong></p>
-  <p> Transaction amount: £<%= transaction.amount %></p>
-  <p> Date: <%= transaction.transaction_date.strftime("%d ") %><a href="transactions/<%= transaction.transaction_date.strftime('%Y') %>/<%= transaction.transaction_date.strftime('%m') %>" id="monthy"><%= transaction.transaction_date.strftime("%B") %></a><%= transaction.transaction_date.strftime(" %Y") %></p>
-  <p> Transaction type:<br /></p>
+  <% @transaction_total += transaction.amount %>
+  <% end %>
+  <% @transaction_total %>
+
+
+  <style>
+  .pieContainer {
+    height: 150px;
+    margin-left: 30px;
+    position: relative;
+  }
+
+  .pieBackground {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+  }
+
+  .pie {
+    transition: all 1s;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    clip: rect(0px, 75px, 150px, 0px);
+  }
+
+  .hold {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    clip: rect(0px, 150px, 150px, 75px);
+  }
+
+  .innerCircle {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 60px;
+    top: 15px;
+    left: 15px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.5) inset;
+    color: black;
+  }
+  .innerCircle .content {
+    position: absolute;
+    display: block;
+    width: 120px;
+    top: 30px;
+    left: 0;
+    text-align: center;
+    font-size: 14px;
+  }
+  </style>
+
+  <div class="pieContainer">
+    <% @color_randomiser = ['red', 'green', 'pink', 'black', 'blue', 'grey', 'orange'].sample %>
+    <% @pie_degree = 0 %>
+    <% @transactions.each_with_index do |transaction, index| %>
+    <% @pie_degree += ((transaction.amount.to_f / @transaction_total).round(2) * 360) %>
+
+
+
+    <style>
+    .pieContainer:nth-child(<%= index + 3 %>) .pieSlice .pie{
+      transform: rotate(<%= @pie_degree %>deg);
+    }
+
+    .pieContainer:nth-child(<%= index + 3 %>) .pieSlice > .pie {
+      background-color: <%= @color_randomiser %>;
+      transform:rotate(<%= @pie_degree %>deg);
+    }
+    </style>
+    <div class="hold pieSlice">
+      <div class="pie"></div>
+    </div>
+  <% end %>
+  <div class="pieBackground"></div>
+</div>
+
+  <div id="transaction-page">
+
+  <% @transactions.each do |transaction| %>
+
+  <article id="<%= transaction.tag.t_type %>">
+    <p id="vendor-name"><strong><%= transaction.vendor.name %></strong></p>
+    <p> Transaction amount: £<%= transaction.amount %></p>
+    <p> Date: <%= transaction.transaction_date.strftime("%d ") %><a href="transactions/<%= transaction.transaction_date.strftime('%Y') %>/<%= transaction.transaction_date.strftime('%m') %>" id="monthy"><%= transaction.transaction_date.strftime("%B") %></a><%= transaction.transaction_date.strftime(" %Y") %></p>
+    <p> Transaction type:<br /></p>
     <a href="/tags/<%= transaction.tag.id %>/all" class="btn-tag">
       <p class="<%= transaction.tag.t_type %>"><span id="hover-transition"><%= transaction.tag.t_name %></span>
       </p>
@@ -32,3 +120,76 @@
 <% end %>
 
 </div>
+
+<style>
+/*#pieSlice1 .pie {
+background-color: #1b458b;
+transform:rotate(<%= @pie_degree %>deg);
+}
+
+#pieSlice2 {
+transform: rotate(<%= @pie_degree %>);
+}
+
+#pieSlice2 .pie {
+background-color: #0a0;
+transform: rotate(<%= @pie_degree %>);
+}
+
+#pieSlice3 {
+transform: rotate(90deg);
+}
+
+#pieSlice3 .pie {
+background-color: #f80;
+transform: rotate(120deg);
+}
+
+#pieSlice4 {
+transform: rotate(210deg);
+}
+
+#pieSlice4 .pie {
+background-color: #08f;
+transform: rotate(10deg);
+}
+
+#pieSlice5 {
+transform: rotate(220deg);
+}
+
+#pieSlice5 .pie {
+background-color: #a04;
+transform: rotate(70deg);
+}
+
+#pieSlice6 {
+transform: rotate(290deg);
+}
+
+#pieSlice6 .pie {
+background-color: #ffd700;
+transform: rotate(70deg);
+}
+
+.innerCircle {
+position: absolute;
+width: 120px;
+height: 120px;
+background-color: white;
+border-radius: 60px;
+top: 15px;
+left: 15px;
+box-shadow: 0px 0px 8px rgba(0,0,0,0.5) inset;
+color: black;
+}
+.innerCircle .content {
+position: absolute;
+display: block;
+width: 120px;
+top: 30px;
+left: 0;
+text-align: center;
+font-size: 14px;
+}*/
+</style>

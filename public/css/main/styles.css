@@ -66,13 +66,13 @@ footer {
 }
 
 a.menu-item {
-  background-color: #F17845;
+  background-color: black;
   color: white;
   display: inline-block;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  border: 3px solid white;
+  border: 3px solid black;
   border-radius: 30px;
   margin-left: 5px;
   margin-right: 5px;
@@ -82,7 +82,7 @@ a.menu-item {
 }
 
 a.menu-item:hover {
-  background-color: white;
+  background-color: #ECF3EC;
   color: black;
 }
 
