@@ -139,6 +139,20 @@ class Transaction
       return transactions[0].values.last
     end
 
+    def self.most_common_tag_by_number_by_month( month )
+      sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
+      FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      WHERE EXTRACT(month FROM transaction_date) = $1
+      GROUP BY tags.t_name
+      ORDER BY COUNT(transactions.tag_id) DESC LIMIT 1"
+      values = [month]
+      transactions = SqlRunner.run(sql, values)
+      # return transactions.map {|transaction| Transaction.new(transaction)}
+      return transactions[0].values.last
+    end
+
     def self.most_common_tag()
       sql = "SELECT tags.t_name, COUNT(transactions.tag_id)
       FROM transactions
@@ -149,6 +163,33 @@ class Transaction
       values = []
       transactions = SqlRunner.run(sql, values)
       return transactions[0].values.first
+    end
+
+    def self.most_common_tag_per_month( month )
+      sql ="SELECT tags.t_name, COUNT(transactions.tag_id)
+      FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      WHERE EXTRACT(month FROM transaction_date) = $1
+      GROUP BY tags.t_name
+      ORDER BY COUNT(transactions.tag_id) DESC LIMIT 1;"
+      values = [month]
+      transactions = SqlRunner.run(sql, values)
+      return transactions[0].values.first
+    end
+
+    def self.most_common_tag_per_month( month )
+      sql ="SELECT tags.t_name, transactions.amount
+      FROM transactions
+      JOIN tags
+      ON tags.id = transactions.tag_id
+      WHERE EXTRACT(month FROM transaction_date) = $1
+      GROUP BY transactions.amount, tags.id
+      ORDER BY SUM(transactions.amount) DESC LIMIT 1;"
+      values = [month]
+      transactions = SqlRunner.run(sql, values)
+      # results = transactions.map { |transaction| Transaction.new (transaction)  }
+      return transactions[0].values
     end
 
     def self.most_spent_on()

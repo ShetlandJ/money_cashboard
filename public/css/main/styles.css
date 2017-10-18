@@ -248,6 +248,7 @@ tr:nth-child(odd) td { background: #FEFEFE; }
 tr td:hover { background: #666; color: #FFF; }
 /* Hover cell effect! */
 
+
 /*utilities tag CSS*/
 /*p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
   color: black;

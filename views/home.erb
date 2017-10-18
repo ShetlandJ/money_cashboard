@@ -19,7 +19,14 @@
 
     <div id="most_spent_on">
       <h2>
-        You spent the most on <%= @most_spent_on %><br />(£<%= @grouped_cost %>, <%= ((@grouped_cost.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
+        In <%= Date.today.strftime("%B") %>, you spent the most on <%= @most_common_tag_per_month[0] %><br />(£<%= @most_common_tag_per_month.last.to_i.to_f.round(0) %>, <%= ((@most_common_tag_per_month.last.to_i.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
+      </h2>
+    </div>
+
+    <div id="most_common_tag">
+      <h2>
+        Your most common transaction was: <%= @most_common_tag_per_month[0] %> (<%= @most_common_tag_by_number_by_month %> times)
+
       </h2>
     </div>
 
@@ -33,14 +40,8 @@
           </h2>
           <% end %>
         </div>
-  </div>
-
-      <div id="most_common_tag">
-        <h2>
-          Your most common transaction was: <%= @most_common_item %> (<%= @most_common_tag_by_number %> times)
-
-        </h2>
       </div>
+
 
       <div id="menu-options">
 
@@ -69,28 +70,69 @@
             <% if month_spend >= 2000 %>
             <td id="limit-cell">
 
-              <div id="inner-table-red" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #e74c3c; height: 100%; border-radius: 0px 10px 10px 0px;">
-              </div>
-            </td>
+              <div class="inner-table-cell" id="inner-table-red" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #e74c3c; height: 100%; border-radius: 0px 10px 10px 0px; display: flex; align-items: center; justify-content: center; font-size: 18px;">
+              <style>
 
-            <% elsif month_spend < 2000 && month_spend >= 1300 %>
-            <td id="limit-cell">
-              <div id="inner-table-orange" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #f39c12; height: 100%; border-radius: 0px 10px 10px 0px;">
-              </div>
-            </td>
+              #inner-table-red:hover:after {
+                transition: 1s ease;
+                content: '<%= ((month_spend.to_f/account.monthly_income) * 100).round(0) %>%';
+                color: black;
+              }
+              </style>
+            </div>
+          </td>
 
-            <% else %>
-            <td id="limit-cell">
-              <div id="inner-table-green" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #2ecc71; height: 100%; border-radius: 0px 10px 10px 0px;">
-              </div>
-            </td>
-            <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+          <% elsif month_spend < 2000 && month_spend >= 1300 %>
+          <td id="limit-cell">
+            <div class="inner-table-cell" id="inner-table-orange" style="width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%; background-color: #f39c12; height: 100%; border-radius: 0px 10px 10px 0px;  display: flex; align-items: center; justify-content: center; font-size: 18px;">
+            <style>
+            #inner-table-orange:hover:after {
+              transition: 1s ease;
+              content: '<%= ((month_spend.to_f/account.monthly_income) * 100).round(0) %>%';
+              color: black;
+            }
+            </style>
+          </div>
+        </td>
 
-    </div>
+        <% else %>
+        <td id="limit-cell"><p>
 
+          <div class="inner-table-cell" id="inner-table-green">
+          <style>
+          #inner-table-green {
+            transition: width 1s;
+            width: <%= (month_spend.to_f/account.monthly_income) * 100 %>%;
+            background-color: #2ecc71;
+            height: 100%;
+            border-radius: 0px 10px 10px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+          }
+
+
+
+          #inner-table-green:hover:after {
+            transition: 1s ease;
+            content: '<%= ((month_spend.to_f/account.monthly_income) * 100).round(0) %>%';
+            color: black;
+          }
+
+
+
+          </style>
+        </div>
+      </p>
+    </td>
     <% end %>
-  </div>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+</div>
+
+<% end %>
+</div>
