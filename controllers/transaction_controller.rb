@@ -16,6 +16,7 @@ get '/transactions/:id/edit' do
   @transactions = Transaction.find(params['id'])
   @vendors = Vendor.all()
   @tags = Tag.all()
+  @tag_types = Tag.all_types()
   erb ( :"transaction/edit" )
 end
 

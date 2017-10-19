@@ -29,6 +29,8 @@ end
 
 get '/tags/:id/edit' do
   @tags = Tag.find(params['id'])
+  @tags_all = Tag.all()
+  @tag_types = Tag.all_types()
   erb ( :"tag/edit" )
 end
 

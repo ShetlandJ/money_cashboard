@@ -20,7 +20,6 @@ get '/' do
   @month = Transaction.by_date(params[:year], params[:month])
   @total_by_month = Transaction.total_by_month(10)
   @months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  # @most_common_tag_per_month = Transaction.most_common_tag_per_month( Date.today.month )
   @most_common_tag_per_month = Transaction. most_common_tag_per_month( Date.today.month )
   erb ( :home )
 end

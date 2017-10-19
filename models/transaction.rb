@@ -188,7 +188,6 @@ class Transaction
       ORDER BY SUM(transactions.amount) DESC LIMIT 1;"
       values = [month]
       transactions = SqlRunner.run(sql, values)
-      # results = transactions.map { |transaction| Transaction.new (transaction)  }
       return transactions[0].values
     end
 

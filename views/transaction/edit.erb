@@ -31,15 +31,32 @@
           <% end %>
         </select>
 
-        <div id="pound-sign">
-          <span>£</span>
-        <input type="number" min=0 max=100000 name="amount" id="amount" value="<%= @transactions.amount %>" />
-</div>
-        <label for="transaction_date">Date of transaction:</label>
-        <input type="date" name="transaction_date" value="<%= @transactions.transaction_date %>">
+
+        <label for="tag_type"></label>
+        <select name="tag_type" id="tag-dropdown">
+          <option disabled selected value> -- select type -- </option>
+          <% for type in @tag_types %>
+          <% if type == @transactions.tag.t_type %>
+          <option selected="selected" value="<%= tag.t_type %>">
+            <%= type %> (current tag)
+          </option>
+          <% else %>
+          <option value="<%= tag.id %>">
+            <%= type %>
+            <% end %>
+            <% end %>
+          </select>
 
 
-      <input type="submit" value="Edit transaction" id="btn-new-transaction">
+          <div id="pound-sign">
+            <span>£</span>
+            <input type="number" min=0 max=100000 name="amount" id="amount" value="<%= @transactions.amount %>" />
+          </div>
+          <label for="transaction_date">Date of transaction:</label>
+          <input type="date" name="transaction_date" value="<%= @transactions.transaction_date %>">
 
-    </form>
-  </div>
+
+          <input type="submit" value="Edit transaction" id="btn-new-transaction">
+
+        </form>
+      </div>

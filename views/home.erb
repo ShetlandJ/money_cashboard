@@ -15,11 +15,12 @@
         Your total spend in <%= Date.today.strftime("%B") %> is £<%= @total_by_month %>
       </br/>
       (Year to date: £<%= @transactions_total %>)
+      <%= "hello" %>
     </h2>
 
     <div id="most_spent_on">
       <h2>
-        In <%= Date.today.strftime("%B") %>, you spent the most on <%= @most_common_tag_per_month[0] %><br />(£<%= @most_common_tag_per_month.last.to_i.to_f.round(0) %>, <%= ((@most_common_tag_per_month.last.to_i.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
+        In <%= Date.today.strftime("%B") %>, you spent the most on <%= @most_common_tag_per_month[0] %><br />(£<%= @most_common_tag_per_month.last.to_i %>, <%= ((@most_common_tag_per_month.last.to_i.to_f / account.monthly_income) * 100).round(0) %>% of monthly budget)
       </h2>
     </div>
 
@@ -61,10 +62,11 @@
             <td><strong>Spend</strong></td>
             <td>Limit</td>
           </tr>
+          <% counter = 0 %>
           <% @months.each_with_index do |month_name, month_number| %>
           <tr>
-            <td id="table-small"><%= month_name %></td>
-            <td id="table-small"><%= month_spend = Transaction.total_by_month(month_number+1) %></td>
+            <td id="table-small"><%= month_name %></a>
+            <td id="table-small">£<%= month_spend = Transaction.total_by_month(month_number+1) %></td>
             <% if month_spend >= 2000 %>
             <td id="limit-cell">
 

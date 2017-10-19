@@ -6,6 +6,25 @@
     <label for="t_name">Tag name:</label>
     <input type="text" name="t_name" id="tName" value="<%= @tags.t_name %>"/ >
 
+    <label for="tag_type"></label>
+    <select name="tag_type" id="tag-dropdown">
+      <option disabled selected value> -- select type -- </option>
+      <% for tag in @tags_all %>
+      <% for type in @tag_types %>
+      <% if type == tag.t_type %>
+      <option selected="selected" value="<%= tag.t_type %>">
+        <%= type %> (current tag)
+      </option>
+      <% else %>
+      <option value="<%= tag.id %>">
+        <%= type %>
+        <% end %>
+        <% end %>
+        <% end %>
+      </select>
+
+
+
     <input type="submit" value="Edit tag details" id="btn-new-transaction">
 
   </form>

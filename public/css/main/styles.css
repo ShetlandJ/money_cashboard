@@ -258,14 +258,14 @@ tr td:hover { background: #666; color: #FFF; }
 
 
 /*utilities tag CSS*/
-/*p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
+p[class="Electricity\ Bill"], [class="Council\ Tax"], [class="Gas\ Bill"], [class="Mortgage"], [class="Internet"] {
 color: black;
 background-color: #C0C0C0;
 border: solid 1px;
 border-radius: 5px;
 text-align: center;
 padding: 4px 0px 4px 0px;
-}*/
+}
 
 /*p[class="Electricity\ Bill"]:hover, [class="Council\ Tax"]:hover, [class="Gas\ Bill"]:hover, [class="Mortgage"]:hover, [class="Internet"]:hover {
 right: -15px;
